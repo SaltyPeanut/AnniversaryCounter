@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Anniversary Counter</string>
+    <string name="title">Anniversary Counter</string>
+
+    <string name="subtitle_default">\u2665  Verliebt seit  \u2665</string>
+    <string name="subtitle_future">Es dauert noch</string>
+
+    <string name="no_date">--</string>
+    <string name="no_date_hint">Noch kein Datum gesetzt</string>
+    <string name="start_prefix">Start: %1$s</string>
+
+    <string name="btn_set_date">Startdatum ändern</string>
+    <string name="btn_set_message">Nachricht ändern</string>
+    <string name="btn_set_name">Zähler umbenennen</string>
+    <string name="btn_add_counter">+ Neuer Zähler</string>
+    <string name="btn_delete_counter">Zähler löschen</string>
+    <string name="btn_notifications">Meilenstein-Benachrichtigungen</string>
+    <string name="btn_change_background">Hintergrund ändern</string>
+    <string name="settings">Einstellungen</string>
+    <string name="back">Zurück</string>
+    <string name="settings_section_global">Allgemein</string>
+    <string name="use_light_theme">Helles Design verwenden</string>
+    <string name="show_message">Nachricht anzeigen</string>
+    <string name="show_name">Namen anzeigen</string>
+    <string name="custom_appearance_checkbox">Eigene Schriftart &amp; Farbe für diesen Zähler verwenden</string>
+    <string name="btn_counter_appearance">Schriftart &amp; Farbe für diesen Zähler</string>
+    <string name="appearance_settings_title_counter">Schriftart &amp; Farbe für %1$s</string>
+    <string name="btn_appearance">Schriftart &amp; Farbe (global)</string>
+    <string name="btn_reorder_counters">Reihenfolge ändern</string>
+    <string name="reorder_title">Reihenfolge ändern</string>
+    <string name="reorder_hint">Am Griff-Symbol ziehen, um Zähler neu anzuordnen</string>
+    <string name="reorder_handle_description">Ziehen zum Sortieren</string>
+    <string name="appearance_settings_title">Schriftart &amp; Farbe</string>
+    <string name="appearance_preview_text">♥  Verliebt seit  ♥</string>
+    <string name="appearance_preview_numbers">3 Jahre 42 Tage</string>
+    <string name="appearance_font_section">Schriftart</string>
+    <string name="appearance_color_section">Textfarbe</string>
+    <string name="tab_text">Text</string>
+    <string name="tab_numbers">Zahlen</string>
+    <string name="appearance_apply_to_text">Für Text übernehmen</string>
+    <string name="appearance_apply_to_numbers">Für Zahlen übernehmen</string>
+    <string name="font_default">Standard</string>
+    <string name="font_light">Leicht</string>
+    <string name="font_medium">Mittel</string>
+    <string name="font_condensed">Schmal</string>
+    <string name="font_serif">Serif</string>
+    <string name="font_monospace">Monospace</string>
+    <string name="font_cursive">Schreibschrift</string>
+    <string name="color_swatch_description">Textfarbe auswählen</string>
+    <string name="btn_export_backup">Backup exportieren</string>
+    <string name="btn_import_backup">Backup wiederherstellen</string>
+    <string name="backup_share_title">Backup teilen</string>
+    <string name="backup_restore_confirm_title">Backup wiederherstellen?</string>
+    <string name="backup_restore_confirm_message">Alle vorhandenen Zähler werden durch das Backup ersetzt. Fortfahren?</string>
+    <string name="backup_restore_confirm_button">Wiederherstellen</string>
+    <string name="backup_export_failed">Backup konnte nicht erstellt werden</string>
+    <string name="backup_import_failed">Backup konnte nicht gelesen werden – ungültige Datei?</string>
+    <string name="backup_import_success">%1$d Zähler wiederhergestellt</string>
+    <string name="hint">Zähler antippen für Gesamtwerte · lange drücken zum Teilen</string>
+
+    <string name="counter_fallback_label">Zähler vom %1$s</string>
+    <string name="name_dialog_title">Name (optional)</string>
+    <string name="name_dialog_hint">z. B. „Mama und Papa“</string>
+    <string name="delete_counter_title">Zähler löschen?</string>
+    <string name="delete_counter_message">„%1$s“ wird unwiderruflich gelöscht.</string>
+    <string name="delete_confirm">Löschen</string>
+
+    <string name="pick_date">Datum wählen</string>
+    <string name="pick_time">Uhrzeit wählen</string>
+    <string name="share_title">Teilen mit</string>
+    <string name="date_read_failed">Gespeichertes Datum konnte nicht gelesen werden.</string>
+
+    <string name="custom_message_dialog_title">Eigene Nachricht</string>
+    <string name="custom_message_hint">z. B. „Für immer und ewig“</string>
+
+    <string name="total_months">%1$s Monate gesamt</string>
+    <string name="total_weeks">%1$s Wochen gesamt</string>
+    <string name="total_days">%1$s Tage gesamt</string>
+    <string name="total_hours">%1$s Stunden gesamt</string>
+    <string name="total_minutes">%1$s Minuten gesamt</string>
+    <string name="total_seconds">%1$s Sekunden gesamt</string>
+
+    <plurals name="years">
+        <item quantity="one">%d Jahr</item>
+        <item quantity="other">%d Jahre</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">%d Monat</item>
+        <item quantity="other">%d Monate</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d Stunde</item>
+        <item quantity="other">%d Stunden</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d Minute</item>
+        <item quantity="other">%d Minuten</item>
+    </plurals>
+    <plurals name="seconds">
+        <item quantity="one">%d Sekunde</item>
+        <item quantity="other">%d Sekunden</item>
+    </plurals>
+
+    <string name="widget_config_title">Widget einrichten</string>
+    <string name="widget_unit_years">Jahre anzeigen</string>
+    <string name="widget_unit_months">Monate anzeigen</string>
+    <string name="widget_unit_days">Tage anzeigen</string>
+    <string name="widget_unit_hours">Stunden anzeigen</string>
+    <string name="widget_show_subtitle">Nachricht als Überschrift anzeigen</string>
+    <string name="widget_show_background">Hintergrundbild anzeigen</string>
+    <string name="widget_show_background_hint">Nur verfügbar, wenn für den Zähler ein eigenes Hintergrundbild gesetzt ist</string>
+    <string name="widget_save">Speichern</string>
+    <string name="widget_select_at_least_one">Bitte mindestens eine Einheit auswählen</string>
+    <string name="widget_no_date">Kein Datum gesetzt – in der App einrichten</string>
+    <string name="widget_counter_deleted">Zähler wurde gelöscht – Widget neu einrichten</string>
+    <string name="widget_select_counter">Zähler auswählen</string>
+    <string name="widget_no_counters">Erst in der App einen Zähler anlegen</string>
+
+    <string name="milestone_settings_title">Benachrichtigungen für %1$s</string>
+    <string name="milestone_days_100">100 Tage</string>
+    <string name="milestone_months_6">6 Monate</string>
+    <string name="milestone_years_1">1 Jahr</string>
+    <string name="milestone_years_2">2 Jahre</string>
+    <string name="milestone_days_1000">1000 Tage</string>
+    <string name="milestone_years_5">5 Jahre</string>
+    <string name="milestone_years_10">10 Jahre</string>
+    <string name="milestone_custom_section_title">Eigene Meilensteine</string>
+    <string name="milestone_add_custom">+ Meilenstein hinzufügen</string>
+    <string name="milestone_amount_hint">Anzahl</string>
+    <string name="milestone_remove">Meilenstein entfernen</string>
+    <string name="milestone_remove_symbol">✕</string>
+    <string name="milestone_notification_text">%1$s erreicht! ♥</string>
+    <string name="milestone_channel_name">Meilensteine</string>
+    <string name="milestone_channel_description">Erinnerungen bei besonderen Zeitpunkten eines Zählers</string>
+
+    <string name="counter_settings_title">Einstellungen für %1$s</string>
+    <string name="counter_settings_title_generic">Einstellungen</string>
+
+    <string name="background_settings_title">Hintergrund für %1$s</string>
+    <string name="background_pick_from_gallery">Bild aus Galerie wählen</string>
+    <string name="background_use_default">Standardbild verwenden</string>
+    <string name="background_save_failed">Bild konnte nicht gespeichert werden</string>
+
+    <string-array name="milestone_units">
+        <item>Tage</item>
+        <item>Monate</item>
+        <item>Jahre</item>
+    </string-array>
+</resources>

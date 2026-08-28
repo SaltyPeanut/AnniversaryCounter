@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Local configuration file (SDK path etc.), never check this in
+local.properties
+
+# IDE - Android Studio / IntelliJ
+.idea/
+*.iml
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS
+.DS_Store
+
+# Log/profiling
+*.log
+*.hprof

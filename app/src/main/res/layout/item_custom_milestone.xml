@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/etAmount"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/milestone_amount_hint"
+        android:inputType="number"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_secondary" />
+
+    <Spinner
+        android:id="@+id/spUnit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnRemoveMilestone"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/btn_circle"
+        android:contentDescription="@string/milestone_remove"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="0dp"
+        android:text="@string/milestone_remove_symbol"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+</LinearLayout>

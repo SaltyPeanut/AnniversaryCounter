@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/widget_config_title"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_select_counter"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <Spinner
+        android:id="@+id/spCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:spinnerMode="dropdown" />
+
+    <CheckBox
+        android:id="@+id/cbYears"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/widget_unit_years"
+        android:textColor="@color/text_primary" />
+
+    <CheckBox
+        android:id="@+id/cbMonths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/widget_unit_months"
+        android:textColor="@color/text_primary" />
+
+    <CheckBox
+        android:id="@+id/cbDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/widget_unit_days"
+        android:textColor="@color/text_primary" />
+
+    <CheckBox
+        android:id="@+id/cbHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/widget_unit_hours"
+        android:textColor="@color/text_primary" />
+
+    <CheckBox
+        android:id="@+id/cbShowSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:checked="true"
+        android:text="@string/widget_show_subtitle"
+        android:textColor="@color/text_primary" />
+
+    <CheckBox
+        android:id="@+id/cbShowBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/widget_show_background"
+        android:textColor="@color/text_primary" />
+
+    <TextView
+        android:id="@+id/tvShowBackgroundHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/widget_show_background_hint"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btnSaveWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/btn_outline"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
+        android:text="@string/widget_save"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary" />
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="@string/app_name"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnLangDe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/btn_outline"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:text="Deutsch"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/btnLangEn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/btn_outline"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:text="English"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/btnLangEs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/btn_outline"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:text="Español"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/btnLangFr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_outline"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:text="Français"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary"
+        android:textSize="17sp" />
+
+</LinearLayout>

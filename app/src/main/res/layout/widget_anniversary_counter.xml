@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_widget">
+
+    <ImageView
+        android:id="@+id/widgetBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/widgetScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/widgetSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/widgetCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</FrameLayout>

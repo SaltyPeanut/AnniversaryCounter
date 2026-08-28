@@ -1,0 +1,46 @@
+name: Android CI
+
+# push    -> laeuft nach jedem Commit auf main
+# workflow_dispatch -> erlaubt manuellen Start ueber einen Knopf im Actions-Tab
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code auschecken
+        uses: actions/checkout@v6
+
+      # JDK 17, weil das Projekt auf AGP 8.2.2 / Java 17 steht.
+      # Mit JDK 11 bricht der Build ab.
+      - name: JDK 17 einrichten
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Installiert Gradle 8.2 direkt auf dem Runner.
+      # Dadurch wird KEIN gradlew / gradle-wrapper.jar im Repo gebraucht.
+      - name: Gradle installieren
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: '8.2'
+
+      # Aufruf ist "gradle", nicht "./gradlew".
+      # Das Android SDK ist auf ubuntu-latest bereits vorinstalliert.
+      - name: Debug-APK bauen
+        run: gradle assembleDebug --stacktrace
+
+      # Ergebnis landet unter Actions > Lauf > Artifacts zum Download.
+      - name: APK als Artefakt hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30

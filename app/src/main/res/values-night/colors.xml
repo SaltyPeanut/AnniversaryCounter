@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#0D0D0D</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9E9E9E</color>
+    <color name="outline">#5C5C5C</color>
+    <color name="icon_bg">#1A1A1A</color>
+    <color name="surface_selected">#33FFFFFF</color>
+    <color name="heart_line">#FFFFFF</color>
+</resources>
