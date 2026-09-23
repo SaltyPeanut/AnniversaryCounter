@@ -7,7 +7,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "de.anniversarycounter"
+        applicationId "anniversary.counter"
         minSdk 26          // java.time ist ab Android 8.0 direkt verfuegbar
         targetSdk 34
         versionCode 1
