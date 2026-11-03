@@ -8,7 +8,9 @@ Minuten, Sekunden.
 
 ### Zähler
 
-- Datum + Uhrzeit über Dialoge auswählen, jederzeit änderbar
+- Datum + Uhrzeit über Dialoge auswählen, jederzeit änderbar; das Datum wird
+  über Räder (Tag/Monat/Jahr) gewählt, auch weit zurückliegende Jahre sind so
+  direkt einstellbar
 - Läuft live weiter (Aktualisierung jede Sekunde, ohne Drift)
 - Speichert alle Zähler dauerhaft (SharedPreferences), übersteht Neustarts
 - Einheiten mit Wert 0 werden übersprungen
@@ -43,6 +45,9 @@ Minuten, Sekunden.
 - Schriftart und Textfarbe getrennt einstellbar für Text (Name/Nachricht/Titel)
   und Zahlen (die große Zähler-Anzeige), gilt app-weit für alle Zähler
 - Helles Design als Alternative zum dunklen Standard-Design
+- Datum & Zahlenformat: standardmäßig nach App-Sprache (Datum, Tausender-
+  trennzeichen) bzw. Systemeinstellung (12h/24h), in den Einstellungen
+  einzeln änderbar
 
 ### Backup
 
@@ -56,6 +61,9 @@ Minuten, Sekunden.
 ```
 app/src/main/java/de/anniversarycounter/MainActivity.java               Zähler-Seiten (ViewPager), Sekundentakt
 app/src/main/java/de/anniversarycounter/DateDiff.java                    Rechenlogik + Formatierung
+app/src/main/java/de/anniversarycounter/DisplayFormats.java              Datums-/Uhrzeit-/Zahlenformatierung
+app/src/main/java/de/anniversarycounter/FormatSettingsActivity.java      Einstellung Datum & Zahlenformat
+app/src/main/java/de/anniversarycounter/DateTimePickerFlow.java          Dialogkette Datum (Räder) → Uhrzeit
 app/src/main/java/de/anniversarycounter/AnniversaryCounter.java                 Datenmodell eines Zählers
 app/src/main/java/de/anniversarycounter/AnniversaryCounterStore.java             Persistierung aller Zähler als JSON
 app/src/main/java/de/anniversarycounter/CounterPagerAdapter.java          RecyclerView-Adapter für den ViewPager

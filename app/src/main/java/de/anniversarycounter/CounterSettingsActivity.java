@@ -1,8 +1,6 @@
 package de.anniversarycounter;
 
 import android.Manifest;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -31,7 +29,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -87,6 +84,10 @@ public class CounterSettingsActivity extends AppCompatActivity {
         Button btnAppearance = findViewById(R.id.btnAppearance);
         btnAppearance.setOnClickListener(v ->
                 startActivity(new Intent(this, AppearanceSettingsActivity.class)));
+
+        Button btnFormatSettings = findViewById(R.id.btnFormatSettings);
+        btnFormatSettings.setOnClickListener(v ->
+                startActivity(new Intent(this, FormatSettingsActivity.class)));
 
         Button btnReorderCounters = findViewById(R.id.btnReorderCounters);
         btnReorderCounters.setOnClickListener(v ->
@@ -211,33 +212,13 @@ public class CounterSettingsActivity extends AppCompatActivity {
         if (counter == null) {
             return;
         }
-        LocalDateTime base = counter.start;
-        DatePickerDialog dialog = new DatePickerDialog(
-                this,
-                (view, year, month, dayOfMonth) -> pickTime(year, month + 1, dayOfMonth),
-                base.getYear(),
-                base.getMonthValue() - 1,
-                base.getDayOfMonth());
-        dialog.setTitle(R.string.pick_date);
-        dialog.show();
-    }
-
-    private void pickTime(int year, int month, int day) {
-        LocalDateTime base = counter.start;
-        TimePickerDialog dialog = new TimePickerDialog(
-                this,
-                (view, hourOfDay, minute) -> {
-                    counter.start = LocalDateTime.of(year, month, day, hourOfDay, minute, 0);
-                    AnniversaryCounterStore.update(this, counter);
-                    AnniversaryCounterWidgetProvider.updateAllWidgets(this);
-                    // Meilenstein-Zieldaten haengen am Startzeitpunkt und muessen neu geplant werden
-                    MilestoneScheduler.scheduleForCounter(this, counter);
-                },
-                base.getHour(),
-                base.getMinute(),
-                true);
-        dialog.setTitle(R.string.pick_time);
-        dialog.show();
+        DateTimePickerFlow.pick(this, counter.start, start -> {
+            counter.start = start;
+            AnniversaryCounterStore.update(this, counter);
+            AnniversaryCounterWidgetProvider.updateAllWidgets(this);
+            // Meilenstein-Zieldaten haengen am Startzeitpunkt und muessen neu geplant werden
+            MilestoneScheduler.scheduleForCounter(this, counter);
+        });
     }
 
     private void editMessage() {

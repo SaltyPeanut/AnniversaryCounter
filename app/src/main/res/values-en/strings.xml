@@ -68,6 +68,18 @@
 
     <string name="pick_date">Pick date</string>
     <string name="pick_time">Pick time</string>
+
+    <string name="date_time_format">%1$s at %2$s</string>
+    <string name="btn_format_settings">Date &amp; number format</string>
+    <string name="format_settings_title">Date &amp; number format</string>
+    <string name="format_section_date">Date format</string>
+    <string name="format_section_time">Time</string>
+    <string name="format_section_numbers">Thousands separator</string>
+    <string name="format_auto">Automatic (%1$s)</string>
+    <string name="format_time_auto_system">Like the system (%1$s)</string>
+    <string name="format_time_24h">24-hour (%1$s)</string>
+    <string name="format_time_12h">12-hour (%1$s)</string>
+    <string name="format_number_none">No separator (%1$s)</string>
     <string name="share_title">Share with</string>
     <string name="date_read_failed">The saved date could not be read.</string>
 

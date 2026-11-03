@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -143,7 +142,7 @@ public class DateDiff {
     }
 
     private static String format(Context context, int stringRes, long value) {
-        return context.getString(stringRes, String.format(Locale.GERMANY, "%,d", value));
+        return context.getString(stringRes, DisplayFormats.formatNumber(context, value));
     }
 
     private static String join(List<String> parts) {

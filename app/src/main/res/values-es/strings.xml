@@ -68,6 +68,18 @@
 
     <string name="pick_date">Elegir fecha</string>
     <string name="pick_time">Elegir hora</string>
+
+    <string name="date_time_format">%1$s a las %2$s</string>
+    <string name="btn_format_settings">Formato de fecha y números</string>
+    <string name="format_settings_title">Formato de fecha y números</string>
+    <string name="format_section_date">Formato de fecha</string>
+    <string name="format_section_time">Hora</string>
+    <string name="format_section_numbers">Separador de miles</string>
+    <string name="format_auto">Automático (%1$s)</string>
+    <string name="format_time_auto_system">Como el sistema (%1$s)</string>
+    <string name="format_time_24h">24 horas (%1$s)</string>
+    <string name="format_time_12h">12 horas (%1$s)</string>
+    <string name="format_number_none">Sin separador (%1$s)</string>
     <string name="share_title">Compartir con</string>
     <string name="date_read_failed">No se pudo leer la fecha guardada.</string>
 

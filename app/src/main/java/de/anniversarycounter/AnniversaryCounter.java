@@ -3,18 +3,13 @@ package de.anniversarycounter;
 import android.content.Context;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 /** Ein einzelner Zähler: Startzeitpunkt, optionaler Name, optionale eigene Nachricht. */
 public class AnniversaryCounter {
-
-    public static final DateTimeFormatter DISPLAY_FORMAT =
-            DateTimeFormatter.ofPattern("dd.MM.yyyy 'um' HH:mm", Locale.GERMANY);
 
     public final String id;
     public String name;
@@ -46,6 +41,6 @@ public class AnniversaryCounter {
         if (name != null && !name.isEmpty()) {
             return name;
         }
-        return context.getString(R.string.counter_fallback_label, start.format(DISPLAY_FORMAT));
+        return context.getString(R.string.counter_fallback_label, DisplayFormats.formatDateTime(context, start));
     }
 }

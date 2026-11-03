@@ -68,6 +68,19 @@
 
     <string name="pick_date">Datum wählen</string>
     <string name="pick_time">Uhrzeit wählen</string>
+
+    <!-- Datum + Uhrzeit, z. B. "03.11.2026 um 14:30" -->
+    <string name="date_time_format">%1$s um %2$s</string>
+    <string name="btn_format_settings">Datum &amp; Zahlenformat</string>
+    <string name="format_settings_title">Datum &amp; Zahlenformat</string>
+    <string name="format_section_date">Datumsformat</string>
+    <string name="format_section_time">Uhrzeit</string>
+    <string name="format_section_numbers">Tausendertrennzeichen</string>
+    <string name="format_auto">Automatisch (%1$s)</string>
+    <string name="format_time_auto_system">Wie im System (%1$s)</string>
+    <string name="format_time_24h">24 Stunden (%1$s)</string>
+    <string name="format_time_12h">12 Stunden (%1$s)</string>
+    <string name="format_number_none">Ohne Trennzeichen (%1$s)</string>
     <string name="share_title">Teilen mit</string>
     <string name="date_read_failed">Gespeichertes Datum konnte nicht gelesen werden.</string>
 

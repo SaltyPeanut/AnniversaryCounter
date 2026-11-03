@@ -68,6 +68,18 @@
 
     <string name="pick_date">Choisir la date</string>
     <string name="pick_time">Choisir l\'heure</string>
+
+    <string name="date_time_format">%1$s à %2$s</string>
+    <string name="btn_format_settings">Format de date et de nombres</string>
+    <string name="format_settings_title">Format de date et de nombres</string>
+    <string name="format_section_date">Format de date</string>
+    <string name="format_section_time">Heure</string>
+    <string name="format_section_numbers">Séparateur de milliers</string>
+    <string name="format_auto">Automatique (%1$s)</string>
+    <string name="format_time_auto_system">Comme le système (%1$s)</string>
+    <string name="format_time_24h">24 heures (%1$s)</string>
+    <string name="format_time_12h">12 heures (%1$s)</string>
+    <string name="format_number_none">Sans séparateur (%1$s)</string>
     <string name="share_title">Partager avec</string>
     <string name="date_read_failed">Impossible de lire la date enregistrée.</string>
 

@@ -154,7 +154,7 @@ public class CounterPagerAdapter extends RecyclerView.Adapter<CounterPagerAdapte
             }
             tvCounter.setText(showTotals ? diff.formatTotals(context) : diff.formatBreakdown(context));
             tvStart.setText(context.getString(
-                    R.string.start_prefix, counter.start.format(AnniversaryCounter.DISPLAY_FORMAT)));
+                    R.string.start_prefix, DisplayFormats.formatDateTime(context, counter.start)));
         }
 
         private void share() {

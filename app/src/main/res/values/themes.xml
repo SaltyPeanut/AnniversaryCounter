@@ -6,4 +6,15 @@
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="colorAccent">@color/text_primary</item>
     </style>
+
+    <!-- Datumsdialog mit Raedern statt Kalender: Jahr/Monat direkt waehlbar (GitHub-Issue) -->
+    <style name="ThemeOverlay.AnniversaryCounter.SpinnerDatePicker" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="colorAccent">@color/text_primary</item>
+        <item name="android:datePickerStyle">@style/Widget.AnniversaryCounter.SpinnerDatePicker</item>
+    </style>
+
+    <style name="Widget.AnniversaryCounter.SpinnerDatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
 </resources>
