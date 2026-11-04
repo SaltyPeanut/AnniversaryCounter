@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private View vScrim;
     private TextView tvAppTitle;
 
+    /** Zaehler vor einem Neuaufbau (z. B. Designwechsel); die Liste des Adapters ist dann noch leer. */
+    private String restoredCounterId;
+
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final Runnable ticker = new Runnable() {
         @Override
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             // Neuaufbau: Android liefert das urspruengliche Intent, der Sprung ist aber schon erfolgt.
             getIntent().removeExtra(EXTRA_COUNTER_ID);
+            restoredCounterId = savedInstanceState.getString(EXTRA_COUNTER_ID);
         }
         if (!AppSettings.hasLanguage(this)) {
             startActivity(new Intent(this, LanguageSelectionActivity.class));
@@ -82,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnSettings.setOnClickListener(v -> openCounterSettings());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        AnniversaryCounter counter = currentCounter();
+        if (counter != null) {
+            outState.putString(EXTRA_COUNTER_ID, counter.id);
+        }
     }
 
     @Override
@@ -114,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
         tvAppTitle.setTypeface(AppSettings.typeface(this, AppSettings.Target.TEXT));
         tvAppTitle.setTextColor(AppSettings.textColor(this, AppSettings.Target.TEXT));
 
-        String keepId = currentCounter() != null ? currentCounter().id : null;
+        String keepId = currentCounter() != null ? currentCounter().id : restoredCounterId;
+        restoredCounterId = null;
 
         List<AnniversaryCounter> counters = AnniversaryCounterStore.loadAll(this);
         adapter.setCounters(counters);
