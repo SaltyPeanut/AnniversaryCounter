@@ -34,6 +34,7 @@ public class MilestoneSettingsActivity extends AppCompatActivity {
     private LinearLayout customContainer;
     private final List<CustomRow> customRows = new ArrayList<>();
 
+    private CheckBox cbYearly;
     private CheckBox cbDays100;
     private CheckBox cbMonths6;
     private CheckBox cbYears1;
@@ -59,6 +60,9 @@ public class MilestoneSettingsActivity extends AppCompatActivity {
 
         ImageButton btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
+
+        cbYearly = findViewById(R.id.cbYearly);
+        cbYearly.setChecked(counter.enabledStandardMilestones.contains(Milestone.Standard.YEARLY.name()));
 
         cbDays100 = findViewById(R.id.cbDays100);
         cbMonths6 = findViewById(R.id.cbMonths6);
@@ -116,6 +120,9 @@ public class MilestoneSettingsActivity extends AppCompatActivity {
 
     private void save() {
         Set<String> standard = new HashSet<>();
+        if (cbYearly.isChecked()) {
+            standard.add(Milestone.Standard.YEARLY.name());
+        }
         if (cbDays100.isChecked()) {
             standard.add(Milestone.Standard.DAYS_100.name());
         }
@@ -156,6 +163,10 @@ public class MilestoneSettingsActivity extends AppCompatActivity {
             Milestone.Unit unit = Milestone.Unit.values()[row.spUnit.getSelectedItemPosition()];
             custom.add(CustomMilestone.create(amount, unit));
         }
+
+        // Solange die alte Liste noch gilt: eigene Meilensteine bekommen unten neue IDs, ihre
+        // alten Alarme liessen sich danach nicht mehr finden.
+        MilestoneScheduler.cancelForCounter(this, counter);
 
         counter.enabledStandardMilestones = standard;
         counter.customMilestones = custom;

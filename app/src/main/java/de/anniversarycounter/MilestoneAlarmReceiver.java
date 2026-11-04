@@ -33,6 +33,14 @@ public class MilestoneAlarmReceiver extends BroadcastReceiver {
             return;
         }
 
+        if (!MilestoneScheduler.isActive(counter, milestoneKey)) {
+            return;
+        }
+
+        if (Milestone.Standard.YEARLY.name().equals(milestoneKey)) {
+            MilestoneScheduler.scheduleForCounter(context, counter);
+        }
+
         ensureChannel(context);
 
         String title = counter.name != null && !counter.name.isEmpty()
@@ -50,15 +58,24 @@ public class MilestoneAlarmReceiver extends BroadcastReceiver {
                 context, requestCode, openApp,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
-        Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setContentTitle(title)
                 .setContentText(text)
                 .setAutoCancel(true)
-                .setContentIntent(contentIntent)
-                .build();
+                .setContentIntent(contentIntent);
 
-        NotificationManagerCompat.from(context).notify(requestCode, notification);
+        if (counter.hasContact()) {
+            Intent sms = CounterMessage.smsIntent(context, counter);
+            sms.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent smsIntent = PendingIntent.getActivity(
+                    context, requestCode + 1, sms,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            builder.addAction(android.R.drawable.ic_dialog_email,
+                    context.getString(R.string.btn_notify_contact), smsIntent);
+        }
+
+        NotificationManagerCompat.from(context).notify(requestCode, builder.build());
     }
 
     private static void ensureChannel(Context context) {

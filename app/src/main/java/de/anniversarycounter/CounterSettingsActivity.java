@@ -1,11 +1,14 @@
 package de.anniversarycounter;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -42,6 +45,8 @@ public class CounterSettingsActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMPORT_BACKUP = 300;
     private static final int REQUEST_NOTIFICATION_PERMISSION = 301;
+    private static final int REQUEST_CALENDAR_IMPORT = 302;
+    private static final int REQUEST_PICK_CONTACT = 303;
 
     private AnniversaryCounter counter;
 
@@ -54,6 +59,11 @@ public class CounterSettingsActivity extends AppCompatActivity {
     private CheckBox cbShowMessage;
     private CheckBox cbShowName;
     private CheckBox cbCustomAppearance;
+    private CheckBox cbCountdownToNext;
+    private CheckBox cbShowAge;
+    private Button btnSetContact;
+    private Button btnNotifyContact;
+    private Button btnRemoveContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +79,26 @@ public class CounterSettingsActivity extends AppCompatActivity {
         cbShowMessage = findViewById(R.id.cbShowMessage);
         cbShowName = findViewById(R.id.cbShowName);
         cbCustomAppearance = findViewById(R.id.cbCustomAppearance);
+        cbCountdownToNext = findViewById(R.id.cbCountdownToNext);
+        cbShowAge = findViewById(R.id.cbShowAge);
+        cbCountdownToNext.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (counter == null || counter.countdownToNext == isChecked) {
+                return;
+            }
+            counter.countdownToNext = isChecked;
+            AnniversaryCounterStore.update(this, counter);
+            AnniversaryCounterWidgetProvider.updateAllWidgets(this);
+        });
+        cbShowAge.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (counter == null || counter.showAge == isChecked) {
+                return;
+            }
+            counter.showAge = isChecked;
+            AnniversaryCounterStore.update(this, counter);
+            AnniversaryCounterWidgetProvider.updateAllWidgets(this);
+            // Der Text der jaehrlichen Erinnerung steht schon im geplanten Alarm.
+            MilestoneScheduler.scheduleForCounter(this, counter);
+        });
         Button btnCounterAppearance = findViewById(R.id.btnCounterAppearance);
         Button btnNotifications = findViewById(R.id.btnNotifications);
         Button btnChangeBackground = findViewById(R.id.btnChangeBackground);
@@ -95,6 +125,21 @@ public class CounterSettingsActivity extends AppCompatActivity {
 
         Button btnExportBackup = findViewById(R.id.btnExportBackup);
         Button btnImportBackup = findViewById(R.id.btnImportBackup);
+        Button btnImportCalendar = findViewById(R.id.btnImportCalendar);
+        btnImportCalendar.setOnClickListener(v -> startActivityForResult(
+                new Intent(this, CalendarImportActivity.class), REQUEST_CALENDAR_IMPORT));
+
+        btnSetContact = findViewById(R.id.btnSetContact);
+        btnNotifyContact = findViewById(R.id.btnNotifyContact);
+        btnRemoveContact = findViewById(R.id.btnRemoveContact);
+        btnSetContact.setOnClickListener(v -> pickContact());
+        btnNotifyContact.setOnClickListener(v -> {
+            if (counter != null && counter.hasContact()) {
+                CounterMessage.sendToContact(this, counter);
+            }
+        });
+        btnRemoveContact.setOnClickListener(v -> saveContact(null, null));
+
         btnExportBackup.setOnClickListener(v -> exportBackup());
         btnImportBackup.setOnClickListener(v -> confirmImportBackup());
 
@@ -141,8 +186,20 @@ public class CounterSettingsActivity extends AppCompatActivity {
             buildCounterTabs(created.id);
         }));
 
-        String counterId = getIntent().getStringExtra(EXTRA_COUNTER_ID);
+        // Nach dem Neuaufbau derselbe Zaehler: das Ergebnis des Kontaktwaehlers muss bei dem
+        // Zaehler landen, fuer den er geoeffnet wurde.
+        String counterId = savedInstanceState != null
+                ? savedInstanceState.getString(EXTRA_COUNTER_ID)
+                : getIntent().getStringExtra(EXTRA_COUNTER_ID);
         buildCounterTabs(counterId);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (counter != null) {
+            outState.putString(EXTRA_COUNTER_ID, counter.id);
+        }
     }
 
     /**
@@ -205,7 +262,60 @@ public class CounterSettingsActivity extends AppCompatActivity {
             cbShowMessage.setChecked(counter.showMessage);
             cbShowName.setChecked(counter.showName);
             cbCustomAppearance.setChecked(counter.customAppearance);
+            cbCountdownToNext.setChecked(counter.countdownToNext);
+            cbShowAge.setChecked(counter.showAge);
+            bindContact();
         }
+    }
+
+    private void bindContact() {
+        boolean hasContact = counter.hasContact();
+        btnSetContact.setText(hasContact
+                ? getString(R.string.btn_change_contact, counter.contactLabel())
+                : getString(R.string.btn_set_contact));
+        btnNotifyContact.setVisibility(hasContact ? View.VISIBLE : View.GONE);
+        btnRemoveContact.setVisibility(hasContact ? View.VISIBLE : View.GONE);
+    }
+
+    private void pickContact() {
+        if (counter == null) {
+            return;
+        }
+        // Der Kontaktwaehler gibt Lesezugriff auf genau den gewaehlten Eintrag, READ_CONTACTS
+        // ist dafuer nicht noetig.
+        Intent pick = new Intent(Intent.ACTION_PICK);
+        pick.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+        try {
+            startActivityForResult(pick, REQUEST_PICK_CONTACT);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.contact_pick_failed, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void saveContactFromPicker(Uri uri) {
+        String[] projection = {
+                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+                ContactsContract.CommonDataKinds.Phone.NUMBER,
+        };
+        try (Cursor cursor = getContentResolver().query(uri, projection, null, null, null)) {
+            if (cursor != null && cursor.moveToFirst() && !cursor.isNull(1)) {
+                saveContact(cursor.getString(0), cursor.getString(1));
+                return;
+            }
+        } catch (SecurityException e) {
+            // faellt unten auf die Fehlermeldung durch
+        }
+        Toast.makeText(this, R.string.contact_pick_failed, Toast.LENGTH_LONG).show();
+    }
+
+    private void saveContact(String name, String phone) {
+        if (counter == null) {
+            return;
+        }
+        counter.contactName = name;
+        counter.contactPhone = phone;
+        AnniversaryCounterStore.update(this, counter);
+        bindContact();
     }
 
     private void editDate() {
@@ -334,12 +444,24 @@ public class CounterSettingsActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != REQUEST_IMPORT_BACKUP || resultCode != RESULT_OK
-                || data == null || data.getData() == null) {
+        if (resultCode != RESULT_OK) {
             return;
         }
+        if (requestCode == REQUEST_CALENDAR_IMPORT) {
+            AnniversaryCounterWidgetProvider.updateAllWidgets(this);
+            buildCounterTabs(counter != null ? counter.id : null);
+        } else if (data != null && data.getData() != null) {
+            if (requestCode == REQUEST_IMPORT_BACKUP) {
+                restoreBackup(data.getData());
+            } else if (requestCode == REQUEST_PICK_CONTACT) {
+                saveContactFromPicker(data.getData());
+            }
+        }
+    }
+
+    private void restoreBackup(Uri uri) {
         try {
-            String json = readText(data.getData());
+            String json = readText(uri);
             BackupManager.Result result = BackupManager.restore(this, json);
             AnniversaryCounterWidgetProvider.updateAllWidgets(this);
             Toast.makeText(this, getString(R.string.backup_import_success, result.counterCount), Toast.LENGTH_LONG)
