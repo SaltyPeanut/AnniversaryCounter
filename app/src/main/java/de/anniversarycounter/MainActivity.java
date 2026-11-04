@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            // Neuaufbau: Android liefert das urspruengliche Intent, der Sprung ist aber schon erfolgt.
+            getIntent().removeExtra(EXTRA_COUNTER_ID);
+        }
         if (!AppSettings.hasLanguage(this)) {
             startActivity(new Intent(this, LanguageSelectionActivity.class));
             finish();
@@ -97,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        // Gesprungen wird im folgenden onResume, wenn die Zaehler-Liste aktuell ist.
         setIntent(intent);
-        jumpToCounterFromIntent(intent);
     }
 
     /**
@@ -154,10 +158,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Tippt man auf eine Meilenstein-Benachrichtigung, springt der Pager direkt zum Zaehler. */
+    /**
+     * Tippt man auf eine Meilenstein-Benachrichtigung oder das Widget, springt der Pager einmalig
+     * zum Zaehler. Das Extra wird entfernt, sonst ginge es bei jedem onResume wieder dorthin zurueck.
+     */
     private void jumpToCounterFromIntent(Intent intent) {
         String counterId = intent.getStringExtra(EXTRA_COUNTER_ID);
         if (counterId != null) {
+            intent.removeExtra(EXTRA_COUNTER_ID);
             jumpToCounter(counterId, false);
         }
     }
