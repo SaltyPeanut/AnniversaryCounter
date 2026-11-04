@@ -176,6 +176,9 @@
 
     <string name="countdown_to_next">Compte à rebours jusqu\'au prochain anniversaire</string>
     <string name="show_age">Afficher l\'âge</string>
+    <string name="is_birthday">C\'est un anniversaire de naissance</string>
+    <string name="btn_birthday_settings">Réglages de l\'anniversaire</string>
+    <string name="birthday_settings_title">Anniversaire : %1$s</string>
     <string name="milestone_yearly_label">Anniversaire</string>
     <string name="age_label">Âge : %1$s</string>
 

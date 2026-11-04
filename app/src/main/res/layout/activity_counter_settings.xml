@@ -188,7 +188,7 @@
                 android:textSize="17sp" />
 
             <CheckBox
-                android:id="@+id/cbShowAge"
+                android:id="@+id/cbIsBirthday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -197,9 +197,23 @@
                 android:paddingEnd="16dp"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/show_age"
+                android:text="@string/is_birthday"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/btnBirthdaySettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/btn_outline"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:text="@string/btn_birthday_settings"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/btnSetMessage"

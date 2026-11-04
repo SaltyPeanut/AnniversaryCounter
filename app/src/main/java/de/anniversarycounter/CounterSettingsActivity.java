@@ -60,7 +60,8 @@ public class CounterSettingsActivity extends AppCompatActivity {
     private CheckBox cbShowName;
     private CheckBox cbCustomAppearance;
     private CheckBox cbCountdownToNext;
-    private CheckBox cbShowAge;
+    private CheckBox cbIsBirthday;
+    private Button btnBirthdaySettings;
     private Button btnSetContact;
     private Button btnNotifyContact;
     private Button btnRemoveContact;
@@ -80,7 +81,8 @@ public class CounterSettingsActivity extends AppCompatActivity {
         cbShowName = findViewById(R.id.cbShowName);
         cbCustomAppearance = findViewById(R.id.cbCustomAppearance);
         cbCountdownToNext = findViewById(R.id.cbCountdownToNext);
-        cbShowAge = findViewById(R.id.cbShowAge);
+        cbIsBirthday = findViewById(R.id.cbIsBirthday);
+        btnBirthdaySettings = findViewById(R.id.btnBirthdaySettings);
         cbCountdownToNext.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (counter == null || counter.countdownToNext == isChecked) {
                 return;
@@ -89,16 +91,18 @@ public class CounterSettingsActivity extends AppCompatActivity {
             AnniversaryCounterStore.update(this, counter);
             AnniversaryCounterWidgetProvider.updateAllWidgets(this);
         });
-        cbShowAge.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (counter == null || counter.showAge == isChecked) {
+        cbIsBirthday.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            btnBirthdaySettings.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (counter == null || counter.isBirthday == isChecked) {
                 return;
             }
-            counter.showAge = isChecked;
+            counter.isBirthday = isChecked;
             AnniversaryCounterStore.update(this, counter);
             AnniversaryCounterWidgetProvider.updateAllWidgets(this);
             // Der Text der jaehrlichen Erinnerung steht schon im geplanten Alarm.
             MilestoneScheduler.scheduleForCounter(this, counter);
         });
+        btnBirthdaySettings.setOnClickListener(v -> openBirthdaySettings());
         Button btnCounterAppearance = findViewById(R.id.btnCounterAppearance);
         Button btnNotifications = findViewById(R.id.btnNotifications);
         Button btnChangeBackground = findViewById(R.id.btnChangeBackground);
@@ -194,6 +198,16 @@ public class CounterSettingsActivity extends AppCompatActivity {
         buildCounterTabs(counterId);
     }
 
+    /**
+     * Unterseiten speichern ihre eigene Kopie des Zaehlers. Ohne Neuladen wuerde die naechste
+     * Aenderung hier deren Stand mit dem veralteten {@link #counter} ueberschreiben.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        buildCounterTabs(counter != null ? counter.id : null);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -263,7 +277,8 @@ public class CounterSettingsActivity extends AppCompatActivity {
             cbShowName.setChecked(counter.showName);
             cbCustomAppearance.setChecked(counter.customAppearance);
             cbCountdownToNext.setChecked(counter.countdownToNext);
-            cbShowAge.setChecked(counter.showAge);
+            cbIsBirthday.setChecked(counter.isBirthday);
+            btnBirthdaySettings.setVisibility(counter.isBirthday ? View.VISIBLE : View.GONE);
             bindContact();
         }
     }
@@ -392,6 +407,15 @@ public class CounterSettingsActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, MilestoneSettingsActivity.class);
         intent.putExtra(MilestoneSettingsActivity.EXTRA_COUNTER_ID, counter.id);
+        startActivity(intent);
+    }
+
+    private void openBirthdaySettings() {
+        if (counter == null) {
+            return;
+        }
+        Intent intent = new Intent(this, BirthdaySettingsActivity.class);
+        intent.putExtra(BirthdaySettingsActivity.EXTRA_COUNTER_ID, counter.id);
         startActivity(intent);
     }
 

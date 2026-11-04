@@ -177,6 +177,9 @@
 
     <string name="countdown_to_next">Bis zum nächsten Geburtstag/Jahrestag herunterzählen</string>
     <string name="show_age">Alter anzeigen</string>
+    <string name="is_birthday">Ist ein Geburtstag</string>
+    <string name="btn_birthday_settings">Geburtstags-Einstellungen</string>
+    <string name="birthday_settings_title">Geburtstag: %1$s</string>
     <string name="milestone_yearly_label">Jahrestag</string>
     <string name="age_label">Alter: %1$s</string>
 

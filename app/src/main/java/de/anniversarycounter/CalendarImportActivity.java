@@ -174,6 +174,8 @@ public class CalendarImportActivity extends AppCompatActivity {
             counter.showMessage = false;
             counter.countdownToNext = cbCountdown.isChecked();
             counter.showAge = cbShowAge.isChecked();
+            // Importiert werden alle jaehrlichen Termine, nicht nur Geburtstage.
+            counter.isBirthday = counter.showAge;
             counter.enabledStandardMilestones.add(Milestone.Standard.YEARLY.name());
             all.add(counter);
             imported.add(counter);

@@ -36,6 +36,9 @@ public class AnniversaryCounter {
 
     /** true: zaehlt bis zum naechsten Jahrestag herunter und springt danach aufs Folgejahr. */
     public boolean countdownToNext = false;
+
+    /** Geburtstag: erst damit laesst sich die Altersanzeige ueber {@link #showAge} einschalten. */
+    public boolean isBirthday = false;
     public boolean showAge = false;
 
     public AnniversaryCounter(String id, String name, LocalDateTime start, String message) {
@@ -66,9 +69,14 @@ public class AnniversaryCounter {
         return start.plusYears(years);
     }
 
+    /** Ob das Alter erscheinen soll; {@link #showAge} bleibt beim Abschalten von {@link #isBirthday} erhalten. */
+    public boolean ageEnabled() {
+        return isBirthday && showAge;
+    }
+
     /** Text wie "Alter: 36 Jahre", oder null wenn ausgeblendet bzw. der Start noch bevorsteht. */
     public String ageText(Context context, LocalDateTime now) {
-        if (!showAge || start.isAfter(now)) {
+        if (!ageEnabled() || start.isAfter(now)) {
             return null;
         }
         int age = (int) ChronoUnit.YEARS.between(start, now);

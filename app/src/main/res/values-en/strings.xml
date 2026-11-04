@@ -176,6 +176,9 @@
 
     <string name="countdown_to_next">Count down to the next birthday/anniversary</string>
     <string name="show_age">Show age</string>
+    <string name="is_birthday">This is a birthday</string>
+    <string name="btn_birthday_settings">Birthday settings</string>
+    <string name="birthday_settings_title">Birthday: %1$s</string>
     <string name="milestone_yearly_label">Anniversary</string>
     <string name="age_label">Age: %1$s</string>
 

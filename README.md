@@ -23,7 +23,9 @@ Minuten, Sekunden.
   (ein-/ausblendbar) und optional eigenem Hintergrundbild
 - Zähler-Reihenfolge per Drag & Drop änderbar
 - Pro Zähler wählbar: dauerhaft hochzählen oder bis zum nächsten Geburtstag/Jahrestag
-  herunterzählen (springt danach automatisch aufs Folgejahr), optional mit Altersanzeige
+  herunterzählen (springt danach automatisch aufs Folgejahr)
+- Pro Zähler als Geburtstag markierbar; im zugehörigen Untermenü lässt sich dann die
+  Altersanzeige einschalten
 - App-Titel wird immer auf der Startseite angezeigt
 
 ### Kalender-Import
@@ -87,6 +89,7 @@ app/src/main/java/de/anniversarycounter/AnniversaryCounterStore.java            
 app/src/main/java/de/anniversarycounter/CounterPagerAdapter.java          RecyclerView-Adapter für den ViewPager
 app/src/main/java/de/anniversarycounter/CounterCreationFlow.java          Dialogkette zum Anlegen eines Zählers
 app/src/main/java/de/anniversarycounter/CounterSettingsActivity.java      Einstellungen pro Zähler + globale Aktionen
+app/src/main/java/de/anniversarycounter/BirthdaySettingsActivity.java     Geburtstags-Untermenü (Altersanzeige)
 app/src/main/java/de/anniversarycounter/CounterOrderActivity.java         Zähler-Reihenfolge per Drag & Drop
 app/src/main/java/de/anniversarycounter/CounterOrderAdapter.java          RecyclerView-Adapter für die Sortierliste
 app/src/main/java/de/anniversarycounter/AppSettings.java                  Globale Einstellungen (Schrift, Farbe, Theme)

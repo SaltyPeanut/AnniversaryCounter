@@ -42,7 +42,7 @@ public final class MilestoneScheduler {
             if (standard == Milestone.Standard.YEARLY) {
                 int years = nextYearlyAmount(counter);
                 // Bei ausgeblendetem Alter darf es auch in der Benachrichtigung nicht auftauchen.
-                String label = counter.showAge
+                String label = counter.ageEnabled()
                         ? context.getResources().getQuantityString(R.plurals.years, years, years)
                         : context.getString(R.string.milestone_yearly_label);
                 schedule(context, counter, standard.name(), years, Milestone.Unit.YEARS, label);
