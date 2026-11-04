@@ -4,13 +4,13 @@ plugins {
 
 android {
     namespace 'de.anniversarycounter'
-    compileSdk 34
+    compileSdk = 37
 
     defaultConfig {
         applicationId "anniversary.counter"
         minSdk 26          // java.time ist ab Android 8.0 direkt verfuegbar
-        targetSdk 34
-        versionCode 1
+        targetSdk = 37
+        versionCode 3
         versionName "1.0"
     }
 
