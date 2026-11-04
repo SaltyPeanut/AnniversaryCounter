@@ -30,6 +30,13 @@
             android:textStyle="bold" />
 
         <CheckBox
+            android:id="@+id/cbYearly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/milestone_yearly"
+            android:textColor="@color/text_primary" />
+
+        <CheckBox
             android:id="@+id/cbDays100"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

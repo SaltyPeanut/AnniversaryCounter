@@ -18,7 +18,9 @@ public final class Milestone {
         YEARS_2(2, Unit.YEARS, R.string.milestone_years_2),
         DAYS_1000(1000, Unit.DAYS, R.string.milestone_days_1000),
         YEARS_5(5, Unit.YEARS, R.string.milestone_years_5),
-        YEARS_10(10, Unit.YEARS, R.string.milestone_years_10);
+        YEARS_10(10, Unit.YEARS, R.string.milestone_years_10),
+        /** Wiederkehrend: {@link MilestoneScheduler} plant immer den naechsten Jahrestag. */
+        YEARLY(1, Unit.YEARS, R.string.milestone_yearly);
 
         public final int amount;
         public final Unit unit;

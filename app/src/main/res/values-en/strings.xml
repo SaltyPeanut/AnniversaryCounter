@@ -129,6 +129,7 @@
     <string name="milestone_days_1000">1000 days</string>
     <string name="milestone_years_5">5 years</string>
     <string name="milestone_years_10">10 years</string>
+    <string name="milestone_yearly">Remind me every year on the anniversary</string>
     <string name="milestone_custom_section_title">Custom milestones</string>
     <string name="milestone_add_custom">+ Add milestone</string>
     <string name="milestone_amount_hint">Amount</string>
@@ -145,6 +146,33 @@
     <string name="background_pick_from_gallery">Choose image from gallery</string>
     <string name="background_use_default">Use default image</string>
     <string name="background_save_failed">Image could not be saved</string>
+
+    <string name="btn_import_calendar">Import from calendar</string>
+    <string name="calendar_import_title">Import from calendar</string>
+    <string name="calendar_import_hint">Yearly events from your calendars. Choose which ones to add as counters.</string>
+    <string name="calendar_import_empty">No yearly events found. You can also add counters manually.</string>
+    <string name="calendar_import_permission_denied">Import is not possible without calendar access</string>
+    <string name="calendar_import_select_all">Select all</string>
+    <string name="calendar_import_deselect_all">Deselect all</string>
+    <string name="calendar_import_button">Import (%1$d)</string>
+    <string name="calendar_import_details">%1$s · %2$s</string>
+    <string name="calendar_import_already_present">%1$s · already added</string>
+    <plurals name="calendar_import_success">
+        <item quantity="one">%d counter imported</item>
+        <item quantity="other">%d counters imported</item>
+    </plurals>
+
+    <string name="countdown_to_next">Count down to the next birthday/anniversary</string>
+    <string name="show_age">Show age</string>
+    <string name="milestone_yearly_label">Anniversary</string>
+    <string name="age_label">Age: %1$s</string>
+
+    <string name="btn_set_contact">Add contact</string>
+    <string name="btn_change_contact">Contact: %1$s</string>
+    <string name="btn_notify_contact">Notify person</string>
+    <string name="btn_remove_contact">Remove contact</string>
+    <string name="contact_pick_failed">Contact could not be added</string>
+    <string name="contact_no_sms_app">No SMS app found</string>
 
     <string-array name="milestone_units">
         <item>Days</item>

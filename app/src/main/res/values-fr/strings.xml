@@ -129,6 +129,7 @@
     <string name="milestone_days_1000">1000 jours</string>
     <string name="milestone_years_5">5 ans</string>
     <string name="milestone_years_10">10 ans</string>
+    <string name="milestone_yearly">Me le rappeler chaque année à la date anniversaire</string>
     <string name="milestone_custom_section_title">Étapes personnalisées</string>
     <string name="milestone_add_custom">+ Ajouter une étape</string>
     <string name="milestone_amount_hint">Quantité</string>
@@ -145,6 +146,33 @@
     <string name="background_pick_from_gallery">Choisir une image dans la galerie</string>
     <string name="background_use_default">Utiliser l\'image par défaut</string>
     <string name="background_save_failed">Impossible d\'enregistrer l\'image</string>
+
+    <string name="btn_import_calendar">Importer depuis l\'agenda</string>
+    <string name="calendar_import_title">Importer depuis l\'agenda</string>
+    <string name="calendar_import_hint">Événements annuels de vos agendas. Choisissez ceux à ajouter comme compteurs.</string>
+    <string name="calendar_import_empty">Aucun événement annuel trouvé. Vous pouvez aussi créer des compteurs manuellement.</string>
+    <string name="calendar_import_permission_denied">Importation impossible sans accès à l\'agenda</string>
+    <string name="calendar_import_select_all">Tout sélectionner</string>
+    <string name="calendar_import_deselect_all">Tout désélectionner</string>
+    <string name="calendar_import_button">Importer (%1$d)</string>
+    <string name="calendar_import_details">%1$s · %2$s</string>
+    <string name="calendar_import_already_present">%1$s · déjà ajouté</string>
+    <plurals name="calendar_import_success">
+        <item quantity="one">%d compteur importé</item>
+        <item quantity="other">%d compteurs importés</item>
+    </plurals>
+
+    <string name="countdown_to_next">Compte à rebours jusqu\'au prochain anniversaire</string>
+    <string name="show_age">Afficher l\'âge</string>
+    <string name="milestone_yearly_label">Anniversaire</string>
+    <string name="age_label">Âge : %1$s</string>
+
+    <string name="btn_set_contact">Ajouter un contact</string>
+    <string name="btn_change_contact">Contact : %1$s</string>
+    <string name="btn_notify_contact">Prévenir la personne</string>
+    <string name="btn_remove_contact">Retirer le contact</string>
+    <string name="contact_pick_failed">Impossible d\'ajouter le contact</string>
+    <string name="contact_no_sms_app">Aucune application SMS trouvée</string>
 
     <string-array name="milestone_units">
         <item>Jours</item>

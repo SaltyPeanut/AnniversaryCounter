@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     /** Extra, ueber das eine Meilenstein-Benachrichtigung direkt zum passenden Zaehler springt. */
     public static final String EXTRA_COUNTER_ID = "counter_id";
 
+    private static final int MAX_DOTS = 15;
+
     private ViewPager2 pager;
     private CounterPagerAdapter adapter;
     private LinearLayout dotsRow;
@@ -183,7 +185,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void buildDots(int count) {
         dotsRow.removeAllViews();
-        if (count <= 1) {
+        // Die Punktereihe scrollt nicht: bei sehr vielen Zaehlern (z. B. nach einem
+        // Kalender-Import) liefe sie aus dem Bild, daher dann ganz ausblenden.
+        if (count <= 1 || count > MAX_DOTS) {
             return;
         }
         int size = (int) (8 * getResources().getDisplayMetrics().density);
