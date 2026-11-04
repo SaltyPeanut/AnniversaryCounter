@@ -20,3 +20,8 @@ captures/
 # Log/profiling
 *.log
 *.hprof
+
+# Release-Bundles
+app/release/
+*.aab
+*.apk

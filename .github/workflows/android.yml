@@ -17,7 +17,7 @@ jobs:
       - name: Code auschecken
         uses: actions/checkout@v6
 
-      # JDK 17, weil das Projekt auf AGP 8.2.2 / Java 17 steht.
+      # JDK 17, weil das Projekt auf AGP 8.13.2 / Java 17 steht.
       # Mit JDK 11 bricht der Build ab.
       - name: JDK 17 einrichten
         uses: actions/setup-java@v5
@@ -25,12 +25,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # Installiert Gradle 8.2 direkt auf dem Runner.
+      # Installiert Gradle 8.13 direkt auf dem Runner.
       # Dadurch wird KEIN gradlew / gradle-wrapper.jar im Repo gebraucht.
       - name: Gradle installieren
         uses: gradle/actions/setup-gradle@v6
         with:
-          gradle-version: '8.2'
+          gradle-version: '8.13'
 
       # Aufruf ist "gradle", nicht "./gradlew".
       # Das Android SDK ist auf ubuntu-latest bereits vorinstalliert.
