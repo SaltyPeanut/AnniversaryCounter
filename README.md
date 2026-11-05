@@ -38,6 +38,12 @@ Minuten, Sekunden.
 - Im Zahnrad-Menü unter „Schnellmenü anpassen“ per Opt-in/Opt-out wählbar, was erscheint; alle
   Einstellungen bleiben im Zahnrad-Menü erreichbar
 
+### Zahnrad-Menü
+
+- Enthält alle Einstellungen, in denselben Gruppen wie das Schnellmenü: Bearbeiten, Anzeige, Erinnerungen,
+  Verwalten und Allgemein; zwischen den Seiten wischt man seitlich
+- Reiter oben wählen das Ereignis, auf „Allgemein“ sind sie ausgeblendet
+
 ### Aus Kalender hinzufügen
 
 - Jährliche Termine (z. B. Geburtstage) aus den auf dem Gerät synchronisierten

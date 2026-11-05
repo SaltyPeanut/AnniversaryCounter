@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="8dp">
+
+        <CheckBox
+            android:id="@+id/cbIsBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/btn_outline"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="@string/is_birthday"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btnBirthdaySettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/btn_outline"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="@string/btn_birthday_settings"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp"
+            android:visibility="gone" />
+
+        <CheckBox
+            android:id="@+id/cbCustomAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/btn_outline"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="@string/custom_appearance_checkbox"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btnCounterAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/btn_outline"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="@string/btn_counter_appearance"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btnChangeBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/btn_outline"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="@string/btn_change_background"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp" />
+    </LinearLayout>
+</ScrollView>
