@@ -3,7 +3,7 @@
     <string name="app_name">Anniversary Counter</string>
     <string name="title">Anniversary Counter</string>
 
-    <string name="subtitle_default">♥  Amoureux depuis  ♥</string>
+    <string name="subtitle_default">Temps écoulé</string>
     <string name="subtitle_future">Temps restant</string>
 
     <string name="no_date">--</string>
@@ -32,7 +32,7 @@
     <string name="reorder_hint">Faites glisser la poignée pour changer l\'ordre</string>
     <string name="reorder_handle_description">Glisser pour trier</string>
     <string name="appearance_settings_title">Police et couleur</string>
-    <string name="appearance_preview_text">♥  Amoureux depuis  ♥</string>
+    <string name="appearance_preview_text">Temps écoulé</string>
     <string name="appearance_preview_numbers">3 ans 42 jours</string>
     <string name="appearance_font_section">Police</string>
     <string name="appearance_color_section">Couleur du texte</string>

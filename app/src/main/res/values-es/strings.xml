@@ -3,7 +3,7 @@
     <string name="app_name">Anniversary Counter</string>
     <string name="title">Anniversary Counter</string>
 
-    <string name="subtitle_default">♥  Enamorados desde  ♥</string>
+    <string name="subtitle_default">Tiempo transcurrido</string>
     <string name="subtitle_future">Tiempo restante</string>
 
     <string name="no_date">--</string>
@@ -32,7 +32,7 @@
     <string name="reorder_hint">Arrastra el asa para cambiar el orden</string>
     <string name="reorder_handle_description">Arrastrar para ordenar</string>
     <string name="appearance_settings_title">Fuente y color</string>
-    <string name="appearance_preview_text">♥  Enamorados desde  ♥</string>
+    <string name="appearance_preview_text">Tiempo transcurrido</string>
     <string name="appearance_preview_numbers">3 años 42 días</string>
     <string name="appearance_font_section">Fuente</string>
     <string name="appearance_color_section">Color del texto</string>

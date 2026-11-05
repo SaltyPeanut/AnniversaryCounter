@@ -3,7 +3,7 @@
     <string name="app_name">Anniversary Counter</string>
     <string name="title">Anniversary Counter</string>
 
-    <string name="subtitle_default">\u2665  Verliebt seit  \u2665</string>
+    <string name="subtitle_default">Vergangene Zeit</string>
     <string name="subtitle_future">Es dauert noch</string>
 
     <string name="no_date">--</string>
@@ -32,7 +32,7 @@
     <string name="reorder_hint">Am Griff ziehen, um die Reihenfolge zu ändern</string>
     <string name="reorder_handle_description">Ziehen zum Sortieren</string>
     <string name="appearance_settings_title">Schrift &amp; Farbe</string>
-    <string name="appearance_preview_text">♥  Verliebt seit  ♥</string>
+    <string name="appearance_preview_text">Vergangene Zeit</string>
     <string name="appearance_preview_numbers">3 Jahre 42 Tage</string>
     <string name="appearance_font_section">Schrift</string>
     <string name="appearance_color_section">Textfarbe</string>
