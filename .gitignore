@@ -25,3 +25,6 @@ captures/
 app/release/
 *.aab
 *.apk
+
+# Store-Eintrag (Bilder und Texte)
+store_assets/
