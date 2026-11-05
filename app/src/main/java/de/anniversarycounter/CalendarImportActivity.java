@@ -170,7 +170,7 @@ public class CalendarImportActivity extends AppCompatActivity {
         for (CalendarBirthdayReader.Candidate candidate : selected) {
             AnniversaryCounter counter = new AnniversaryCounter(
                     UUID.randomUUID().toString(), candidate.title, candidate.start(), null);
-            // Ohne eigene Nachricht stuende hier sonst der Standardtext "Verliebt seit".
+            // Der Name des Termins reicht als Beschriftung, die Standard-Ueberschrift waere nur doppelt.
             counter.showMessage = false;
             counter.countdownToNext = cbCountdown.isChecked();
             counter.showAge = cbShowAge.isChecked();

@@ -1,135 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:padding="24dp">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/btn_circle"
-            android:contentDescription="@string/back"
-            android:padding="12dp"
-            android:src="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/tvMilestoneTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <CheckBox
-            android:id="@+id/cbYearly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_yearly"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbDays100"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_days_100"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbMonths6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_months_6"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbYears1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_years_1"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbYears2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_years_2"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbDays1000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_days_1000"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbYears5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/milestone_years_5"
-            android:textColor="@color/text_primary" />
-
-        <CheckBox
-            android:id="@+id/cbYears10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="@string/milestone_years_10"
-            android:textColor="@color/text_primary" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/milestone_custom_section_title"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+        android:paddingBottom="72dp">
 
         <LinearLayout
-            android:id="@+id/customMilestonesContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:clipToPadding="false"
+            android:padding="24dp">
 
-        <Button
-            android:id="@+id/btnAddMilestoneRow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/btn_outline"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
-            android:text="@string/milestone_add_custom"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary" />
+            <TextView
+                android:id="@+id/tvMilestoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnSaveMilestones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/btn_outline"
-            android:paddingStart="24dp"
-            android:paddingTop="12dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="12dp"
-            android:text="@string/widget_save"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary" />
+            <CheckBox
+                android:id="@+id/cbYearly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_yearly"
+                android:textColor="@color/text_primary" />
 
-    </LinearLayout>
-</ScrollView>
+            <CheckBox
+                android:id="@+id/cbDays100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_days_100"
+                android:textColor="@color/text_primary" />
+
+            <CheckBox
+                android:id="@+id/cbMonths6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_months_6"
+                android:textColor="@color/text_primary" />
+
+            <CheckBox
+                android:id="@+id/cbYears1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_years_1"
+                android:textColor="@color/text_primary" />
+
+            <CheckBox
+                android:id="@+id/cbYears2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_years_2"
+                android:textColor="@color/text_primary" />
+
+            <CheckBox
+                android:id="@+id/cbDays1000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_days_1000"
+                android:textColor="@color/text_primary" />
+
+            <CheckBox
+                android:id="@+id/cbYears5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milestone_years_5"
+                android:textColor="@color/text_primary" />
+
+            <CheckBox
+                android:id="@+id/cbYears10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/milestone_years_10"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/milestone_custom_section_title"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/customMilestonesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/btnAddMilestoneRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/btn_outline"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="@string/milestone_add_custom"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnSaveMilestones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn_outline"
+                android:paddingStart="24dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="12dp"
+                android:text="@string/widget_save"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/btn_circle"
+        android:contentDescription="@string/back"
+        android:padding="12dp"
+        android:src="@drawable/ic_back" />
+</FrameLayout>

@@ -29,13 +29,13 @@ Die App speichert folgende Angaben ausschließlich lokal im internen Speicher de
 (SharedPreferences bzw. App-eigenes Verzeichnis):
 </p>
 <ul>
-  <li>Start-Datum/-Uhrzeit, optionaler Name und optionale Nachricht je Zähler</li>
-  <li>ein optional ausgewähltes Hintergrundbild je Zähler</li>
+  <li>Start-Datum/-Uhrzeit, optionaler Name und optionale Überschrift je Ereignis</li>
+  <li>ein optional ausgewähltes Hintergrundbild je Ereignis</li>
   <li>Darstellungseinstellungen (Schriftart, Textfarbe, helles/dunkles Design)</li>
   <li>die von dir gewählte App-Sprache</li>
-  <li>deine Auswahl an Meilenstein-Benachrichtigungen</li>
+  <li>deine Auswahl an Erinnerungen</li>
   <li>die aus deinem Kalender ausgewählten Termine (Titel und Datum), wenn du den Kalender-Import nutzt</li>
-  <li>Name und Telefonnummer eines Kontakts, wenn du bei einem Zähler einen Kontakt hinterlegst.
+  <li>Name und Telefonnummer eines Kontakts, wenn du bei einem Ereignis einen Kontakt hinzufügst.
   Das können Daten anderer Personen sein.</li>
 </ul>
 <p>
@@ -47,7 +47,7 @@ der Lage, Daten über das Netzwerk zu versenden.
 <h2>Berechtigungen</h2>
 <ul>
   <li><strong>Benachrichtigungen (POST_NOTIFICATIONS)</strong> – wird benötigt, um dich lokal an
-  eingestellte Meilensteine (z. B. Jahrestage) zu erinnern.</li>
+  eingestellte Zeitpunkte (z. B. Jahrestage) zu erinnern.</li>
   <li><strong>Neustart-Empfang (RECEIVE_BOOT_COMPLETED)</strong> – wird benötigt, damit bereits
   geplante Erinnerungen nach einem Geräte-Neustart erhalten bleiben.</li>
   <li><strong>Kalender lesen (READ_CALENDAR)</strong> – wird beim ersten Kalender-Import abgefragt
@@ -63,14 +63,14 @@ der Lage, Daten über das Netzwerk zu versenden.
 Einen Kontakt wählst du über die Kontaktauswahl von Android aus. Die App erhält dabei einmalig
 Zugriff auf den gewählten Eintrag, nicht auf dein Adressbuch, und dafür ist keine dauerhafte
 Berechtigung nötig. Name und Telefonnummer werden in der App gespeichert, bis du den Kontakt
-entfernst oder den Zähler löschst. Spätere Änderungen im Adressbuch werden nicht übernommen.
-„Person benachrichtigen“ öffnet deine SMS-App mit vorausgefüllter Nummer und Nachricht. Die App
+entfernst oder das Ereignis löschst. Spätere Änderungen im Adressbuch werden nicht übernommen.
+„SMS an Kontakt schreiben“ öffnet deine SMS-App mit vorausgefüllter Nummer und Nachricht. Die App
 sendet nichts selbst, das Abschicken liegt bei dir.
 </p>
 
-<h2>Backup-Funktion</h2>
+<h2>Daten sichern</h2>
 <p>
-Auf Wunsch kannst du alle Zähler als JSON-Datei exportieren. Dabei öffnet die App den
+Auf Wunsch kannst du alle Ereignisse als JSON-Datei exportieren. Dabei öffnet die App den
 Standard-Freigabedialog von Android – du entscheidest selbst, wohin die Datei geht (z. B.
 eigene Cloud, E-Mail, Messenger). Der Entwickler erhält diese Datei zu keinem Zeitpunkt.
 Der Import einer zuvor exportierten Datei funktioniert ebenso rein lokal. Die Datei enthält auch
@@ -101,7 +101,7 @@ keine personenbezogenen Daten erhoben – unabhängig vom Alter der nutzenden Pe
 <h2>Deine Daten löschen</h2>
 <p>
 Da sämtliche Daten ausschließlich lokal auf deinem Gerät gespeichert werden, kannst du sie
-jederzeit selbst löschen: über die App-Einstellungen (Zähler einzeln entfernen) oder über
+jederzeit selbst löschen: über die App-Einstellungen (Ereignisse einzeln entfernen) oder über
 die Android-Systemeinstellungen mittels „App-Daten löschen" bzw. Deinstallation der App.
 
 </p>
