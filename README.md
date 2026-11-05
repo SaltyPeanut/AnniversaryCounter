@@ -38,6 +38,11 @@ Minuten, Sekunden.
 - Im Zahnrad-Menü unter „Schnellmenü anpassen“ per Opt-in/Opt-out wählbar, was erscheint; alle
   Einstellungen bleiben im Zahnrad-Menü erreichbar
 
+### Tutorial
+
+- Erscheint einmal beim ersten Start, sechs Wisch-Seiten mit einer Skizze des erklärten Bereichs
+- Lässt sich überspringen und im Zahnrad-Menü unter „Allgemein“ jederzeit erneut ansehen
+
 ### Zahnrad-Menü
 
 - Enthält alle Einstellungen, in denselben Gruppen wie das Schnellmenü: Bearbeiten, Anzeige, Erinnerungen,
@@ -110,6 +115,7 @@ app/src/main/java/de/anniversarycounter/QuickMenuController.java         Ausfahr
 app/src/main/java/de/anniversarycounter/QuickMenuItem.java               Wählbare Schnellmenü-Einträge
 app/src/main/java/de/anniversarycounter/QuickMenuSettingsActivity.java   Opt-in/Opt-out der Schnellmenü-Einträge
 app/src/main/java/de/anniversarycounter/CounterActions.java              Gemeinsame Aktionen für einen Zähler
+app/src/main/java/de/anniversarycounter/TutorialActivity.java              Tutorial beim ersten Start
 app/src/main/java/de/anniversarycounter/CounterOrderActivity.java         Zähler-Reihenfolge per Drag & Drop
 app/src/main/java/de/anniversarycounter/CounterOrderAdapter.java          RecyclerView-Adapter für die Sortierliste
 app/src/main/java/de/anniversarycounter/AppSettings.java                  Globale Einstellungen (Schrift, Farbe, Theme)

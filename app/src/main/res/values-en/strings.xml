@@ -204,4 +204,21 @@
     <string name="quick_menu_empty">Nothing is selected for the quick menu.</string>
     <string name="quick_menu_toggle">Open or close the quick menu</string>
     <string name="quick_menu_counter_position">Event %1$d of %2$d</string>
+
+    <string name="tutorial_skip">Skip</string>
+    <string name="tutorial_next">Next</string>
+    <string name="tutorial_done">Let\'s go</string>
+    <string name="btn_tutorial">View tutorial</string>
+    <string name="tutorial_welcome_title">Welcome</string>
+    <string name="tutorial_welcome_body">This app shows you, down to the second, how much time has passed since a special moment or how long is left until it.</string>
+    <string name="tutorial_events_title">Your events</string>
+    <string name="tutorial_events_body">Swipe sideways to switch between your events. Tap the time to see the total time and press and hold it to share.</string>
+    <string name="tutorial_menu_title">The quick menu</string>
+    <string name="tutorial_menu_body">Swipe up from the bottom edge or tap the display there. This is where you change the most important things. Swipe left and right for more pages.</string>
+    <string name="tutorial_settings_title">All settings</string>
+    <string name="tutorial_settings_body">The gear at the top right opens all settings, sorted into groups. Under “General” you choose what appears in the quick menu.</string>
+    <string name="tutorial_reminders_title">Birthdays and reminders</string>
+    <string name="tutorial_reminders_body">In the settings you can mark an event as a birthday to see the age, or count down to the next anniversary. Reminders notify you at special moments.</string>
+    <string name="tutorial_more_title">Widget and backup</string>
+    <string name="tutorial_more_body">Add a widget to your home screen to always keep your event in view. With “Back up data” in the settings you can take everything to a new device.</string>
 </resources>

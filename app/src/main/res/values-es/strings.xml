@@ -204,4 +204,21 @@
     <string name="quick_menu_empty">No hay nada seleccionado para el menú rápido.</string>
     <string name="quick_menu_toggle">Abrir o cerrar el menú rápido</string>
     <string name="quick_menu_counter_position">Evento %1$d de %2$d</string>
+
+    <string name="tutorial_skip">Omitir</string>
+    <string name="tutorial_next">Siguiente</string>
+    <string name="tutorial_done">Empezar</string>
+    <string name="btn_tutorial">Ver tutorial</string>
+    <string name="tutorial_welcome_title">Bienvenido</string>
+    <string name="tutorial_welcome_body">Esta app te muestra, al segundo, cuánto tiempo ha pasado desde un momento especial o cuánto falta para que llegue.</string>
+    <string name="tutorial_events_title">Tus eventos</string>
+    <string name="tutorial_events_body">Desliza hacia los lados para cambiar de evento. Toca el tiempo para ver el total y mantenlo pulsado para compartirlo.</string>
+    <string name="tutorial_menu_title">El menú rápido</string>
+    <string name="tutorial_menu_body">Desliza hacia arriba desde el borde inferior o toca allí la indicación. Aquí cambias lo más importante. Desliza a izquierda y derecha para ver más páginas.</string>
+    <string name="tutorial_settings_title">Todos los ajustes</string>
+    <string name="tutorial_settings_body">El engranaje de arriba a la derecha abre todos los ajustes, ordenados por grupos. En «General» eliges qué aparece en el menú rápido.</string>
+    <string name="tutorial_reminders_title">Cumpleaños y recordatorios</string>
+    <string name="tutorial_reminders_body">En los ajustes puedes marcar un evento como cumpleaños para ver la edad o hacer una cuenta atrás hasta el próximo aniversario. Los recordatorios te avisan en momentos especiales.</string>
+    <string name="tutorial_more_title">Widget y copia de seguridad</string>
+    <string name="tutorial_more_body">Añade un widget a tu pantalla de inicio para tener tu evento siempre a la vista. Con «Guardar datos» en los ajustes te lo llevas todo a un dispositivo nuevo.</string>
 </resources>

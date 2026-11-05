@@ -204,4 +204,21 @@
     <string name="quick_menu_empty">Rien n\'est sélectionné pour le menu rapide.</string>
     <string name="quick_menu_toggle">Ouvrir ou fermer le menu rapide</string>
     <string name="quick_menu_counter_position">Événement %1$d sur %2$d</string>
+
+    <string name="tutorial_skip">Passer</string>
+    <string name="tutorial_next">Suivant</string>
+    <string name="tutorial_done">C\'est parti</string>
+    <string name="btn_tutorial">Voir le tutoriel</string>
+    <string name="tutorial_welcome_title">Bienvenue</string>
+    <string name="tutorial_welcome_body">Cette application vous montre, à la seconde près, le temps écoulé depuis un moment spécial ou le temps restant avant celui-ci.</string>
+    <string name="tutorial_events_title">Vos événements</string>
+    <string name="tutorial_events_body">Balayez sur le côté pour changer d\'événement. Touchez le temps pour voir le total et maintenez-le pour le partager.</string>
+    <string name="tutorial_menu_title">Le menu rapide</string>
+    <string name="tutorial_menu_body">Balayez vers le haut depuis le bord inférieur ou touchez l\'indication à cet endroit. C\'est ici que vous modifiez l\'essentiel. Balayez à gauche et à droite pour d\'autres pages.</string>
+    <string name="tutorial_settings_title">Tous les paramètres</string>
+    <string name="tutorial_settings_body">La roue dentée en haut à droite ouvre tous les paramètres, triés par groupes. Sous « Général », choisissez ce qui apparaît dans le menu rapide.</string>
+    <string name="tutorial_reminders_title">Anniversaires et rappels</string>
+    <string name="tutorial_reminders_body">Dans les paramètres, marquez un événement comme anniversaire de naissance pour voir l\'âge, ou faites un compte à rebours jusqu\'au prochain anniversaire. Les rappels vous préviennent aux moments spéciaux.</string>
+    <string name="tutorial_more_title">Widget et sauvegarde</string>
+    <string name="tutorial_more_body">Ajoutez un widget à votre écran d\'accueil pour toujours voir votre événement. Avec « Sauvegarder les données » dans les paramètres, emportez tout sur un nouvel appareil.</string>
 </resources>

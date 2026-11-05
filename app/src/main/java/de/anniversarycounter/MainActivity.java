@@ -75,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements QuickMenuControll
             finish();
             return;
         }
+        // Oeffnet eine Benachrichtigung oder das Widget die App, geht das Ziel vor.
+        if (!AppSettings.hasSeenTutorial(this) && !getIntent().hasExtra(EXTRA_COUNTER_ID)) {
+            startActivity(new Intent(this, TutorialActivity.class));
+            finish();
+            return;
+        }
         setContentView(R.layout.activity_main);
 
         pager = findViewById(R.id.pager);

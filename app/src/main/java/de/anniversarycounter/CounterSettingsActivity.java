@@ -170,6 +170,13 @@ public class CounterSettingsActivity extends AppCompatActivity {
         btnReorderCounters.setOnClickListener(v ->
                 startActivity(new Intent(this, CounterOrderActivity.class)));
 
+        Button btnTutorial = findViewById(R.id.btnTutorial);
+        btnTutorial.setOnClickListener(v -> {
+            Intent intent = new Intent(this, TutorialActivity.class);
+            intent.putExtra(TutorialActivity.EXTRA_REPLAY, true);
+            startActivity(intent);
+        });
+
         Button btnQuickMenuSettings = findViewById(R.id.btnQuickMenuSettings);
         btnQuickMenuSettings.setOnClickListener(v ->
                 startActivity(new Intent(this, QuickMenuSettingsActivity.class)));

@@ -205,4 +205,21 @@
     <string name="quick_menu_empty">Im Schnellmenü ist nichts ausgewählt.</string>
     <string name="quick_menu_toggle">Schnellmenü öffnen oder schließen</string>
     <string name="quick_menu_counter_position">Ereignis %1$d von %2$d</string>
+
+    <string name="tutorial_skip">Überspringen</string>
+    <string name="tutorial_next">Weiter</string>
+    <string name="tutorial_done">Los geht\'s</string>
+    <string name="btn_tutorial">Tutorial ansehen</string>
+    <string name="tutorial_welcome_title">Willkommen</string>
+    <string name="tutorial_welcome_body">Diese App zeigt dir sekundengenau, wie viel Zeit seit einem besonderen Moment vergangen ist oder wie lange es noch dauert.</string>
+    <string name="tutorial_events_title">Deine Ereignisse</string>
+    <string name="tutorial_events_body">Wische seitlich, um zwischen deinen Ereignissen zu wechseln. Tippe auf die Zeit für die Gesamtzeit und halte sie gedrückt, um sie zu teilen.</string>
+    <string name="tutorial_menu_title">Das Schnellmenü</string>
+    <string name="tutorial_menu_body">Wische vom unteren Rand nach oben oder tippe dort auf die Anzeige. Hier änderst du das Wichtigste. Mit Wischen nach links und rechts kommst du zu weiteren Seiten.</string>
+    <string name="tutorial_settings_title">Alle Einstellungen</string>
+    <string name="tutorial_settings_body">Das Zahnrad oben rechts öffnet alle Einstellungen, sortiert nach Gruppen. Unter „Allgemein“ legst du fest, was im Schnellmenü erscheint.</string>
+    <string name="tutorial_reminders_title">Geburtstage und Erinnerungen</string>
+    <string name="tutorial_reminders_body">In den Einstellungen markierst du ein Ereignis als Geburtstag, um das Alter zu sehen, oder zählst bis zum nächsten Jahrestag herunter. Erinnerungen melden sich zu besonderen Zeitpunkten.</string>
+    <string name="tutorial_more_title">Widget und Sicherung</string>
+    <string name="tutorial_more_body">Lege ein Widget auf deinen Startbildschirm, um dein Ereignis immer im Blick zu haben. Mit „Daten sichern“ in den Einstellungen nimmst du alles auf ein neues Gerät mit.</string>
 </resources>

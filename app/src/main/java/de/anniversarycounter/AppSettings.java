@@ -52,6 +52,7 @@ public final class AppSettings {
     private static final String KEY_TIME_STYLE = "time_style";
     private static final String KEY_NUMBER_STYLE = "number_style";
     private static final String KEY_QUICK_MENU_ITEMS = "quick_menu_items";
+    private static final String KEY_TUTORIAL_SEEN = "tutorial_seen";
 
     public static final String LANG_DE = "de";
     public static final String LANG_EN = "en";
@@ -145,6 +146,14 @@ public final class AppSettings {
 
     public static void setNumberStyle(Context context, NumberStyle style) {
         prefs(context).edit().putString(KEY_NUMBER_STYLE, style.name()).apply();
+    }
+
+    static boolean hasSeenTutorial(Context context) {
+        return prefs(context).getBoolean(KEY_TUTORIAL_SEEN, false);
+    }
+
+    static void setTutorialSeen(Context context) {
+        prefs(context).edit().putBoolean(KEY_TUTORIAL_SEEN, true).apply();
     }
 
     /** Im Schnellmenue gewaehlte Eintraege; ohne gespeicherte Auswahl gelten die Standardwerte. */
