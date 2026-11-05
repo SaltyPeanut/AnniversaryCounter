@@ -28,6 +28,16 @@ Minuten, Sekunden.
   Altersanzeige einschalten
 - App-Titel wird immer auf der Startseite angezeigt
 
+### Schnellmenü
+
+- Ausfahrbares Menü auf der Hauptseite: eingefahren unsichtbar, nur die Position des Zählers bleibt
+  stehen. Hochwischen vom unteren Rand oder Antippen dieses Bereichs öffnet es bis zur Bildschirmmitte,
+  der Zähler bleibt darüber sichtbar
+- Mehrere Seiten, durch Wischen nach links und rechts erreichbar; die Punkte zeigen dann die Menü-Seite
+- Schließen durch Herunterwischen, den Griff, den Zurück-Button oder die Zurück-Geste
+- Im Zahnrad-Menü unter „Schnellmenü anpassen“ per Opt-in/Opt-out wählbar, was erscheint; alle
+  Einstellungen bleiben im Zahnrad-Menü erreichbar
+
 ### Kalender-Import
 
 - Jährliche Termine (z. B. Geburtstage) aus den auf dem Gerät synchronisierten
@@ -90,6 +100,10 @@ app/src/main/java/de/anniversarycounter/CounterPagerAdapter.java          Recycl
 app/src/main/java/de/anniversarycounter/CounterCreationFlow.java          Dialogkette zum Anlegen eines Zählers
 app/src/main/java/de/anniversarycounter/CounterSettingsActivity.java      Einstellungen pro Zähler + globale Aktionen
 app/src/main/java/de/anniversarycounter/BirthdaySettingsActivity.java     Geburtstags-Untermenü (Altersanzeige)
+app/src/main/java/de/anniversarycounter/QuickMenuController.java         Ausfahrbares Schnellmenü der Hauptseite
+app/src/main/java/de/anniversarycounter/QuickMenuItem.java               Wählbare Schnellmenü-Einträge
+app/src/main/java/de/anniversarycounter/QuickMenuSettingsActivity.java   Opt-in/Opt-out der Schnellmenü-Einträge
+app/src/main/java/de/anniversarycounter/CounterActions.java              Gemeinsame Aktionen für einen Zähler
 app/src/main/java/de/anniversarycounter/CounterOrderActivity.java         Zähler-Reihenfolge per Drag & Drop
 app/src/main/java/de/anniversarycounter/CounterOrderAdapter.java          RecyclerView-Adapter für die Sortierliste
 app/src/main/java/de/anniversarycounter/AppSettings.java                  Globale Einstellungen (Schrift, Farbe, Theme)

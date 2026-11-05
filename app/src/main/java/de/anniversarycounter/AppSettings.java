@@ -8,7 +8,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.core.os.LocaleListCompat;
 
+import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 /** Globale, zaehlerunabhaengige App-Einstellungen. */
 public final class AppSettings {
@@ -48,6 +51,7 @@ public final class AppSettings {
     private static final String KEY_DATE_STYLE = "date_style";
     private static final String KEY_TIME_STYLE = "time_style";
     private static final String KEY_NUMBER_STYLE = "number_style";
+    private static final String KEY_QUICK_MENU_ITEMS = "quick_menu_items";
 
     public static final String LANG_DE = "de";
     public static final String LANG_EN = "en";
@@ -141,6 +145,26 @@ public final class AppSettings {
 
     public static void setNumberStyle(Context context, NumberStyle style) {
         prefs(context).edit().putString(KEY_NUMBER_STYLE, style.name()).apply();
+    }
+
+    /** Im Schnellmenue gewaehlte Eintraege; ohne gespeicherte Auswahl gelten die Standardwerte. */
+    static Set<QuickMenuItem> quickMenuItems(Context context) {
+        Set<QuickMenuItem> items = EnumSet.noneOf(QuickMenuItem.class);
+        Set<String> stored = prefs(context).getStringSet(KEY_QUICK_MENU_ITEMS, null);
+        for (QuickMenuItem item : QuickMenuItem.values()) {
+            if (stored == null ? item.enabledByDefault : stored.contains(item.name())) {
+                items.add(item);
+            }
+        }
+        return items;
+    }
+
+    static void setQuickMenuItems(Context context, Set<QuickMenuItem> items) {
+        Set<String> names = new HashSet<>();
+        for (QuickMenuItem item : items) {
+            names.add(item.name());
+        }
+        prefs(context).edit().putStringSet(KEY_QUICK_MENU_ITEMS, names).apply();
     }
 
     /** Liest einen als name() gespeicherten Enum-Wert; unbekannte/fehlende Werte ergeben den Fallback. */

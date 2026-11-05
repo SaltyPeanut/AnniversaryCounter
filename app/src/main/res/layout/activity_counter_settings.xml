@@ -1,395 +1,416 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:padding="24dp">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/btn_circle"
-            android:contentDescription="@string/back"
-            android:padding="12dp"
-            android:src="@drawable/ic_back" />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:id="@+id/counterTabGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-
-        </HorizontalScrollView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:letterSpacing="0.03"
-            android:text="@string/title"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:text="@string/settings_section_global"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-
-        <CheckBox
-            android:id="@+id/cbUseLightTheme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/btn_outline"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/use_light_theme"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btnAppearance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_appearance"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btnFormatSettings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_format_settings"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btnReorderCounters"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_reorder_counters"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btnImportCalendar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_import_calendar"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btnExportBackup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_export_backup"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btnImportBackup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_import_backup"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/tvCounterSettingsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:paddingBottom="72dp">
 
         <LinearLayout
-            android:id="@+id/perCounterActions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clipToPadding="false"
+            android:padding="24dp">
 
-            <Button
-                android:id="@+id/btnSetDate"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/btn_set_date"
-                android:textAllCaps="false"
+                android:layout_marginBottom="20dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/counterTabGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:letterSpacing="0.03"
+                android:text="@string/title"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/settings_section_global"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/cbCountdownToNext"
+                android:id="@+id/cbUseLightTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/btn_outline"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/countdown_to_next"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp" />
-
-            <CheckBox
-                android:id="@+id/cbIsBirthday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/is_birthday"
+                android:text="@string/use_light_theme"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnBirthdaySettings"
+                android:id="@+id/btnQuickMenuSettings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/btn_birthday_settings"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/btnSetMessage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/btn_set_message"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp" />
-
-            <CheckBox
-                android:id="@+id/cbShowMessage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/show_message"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp" />
-
-            <Button
-                android:id="@+id/btnSetName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/btn_set_name"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp" />
-
-            <CheckBox
-                android:id="@+id/cbShowName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/show_name"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp" />
-
-            <CheckBox
-                android:id="@+id/cbCustomAppearance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/custom_appearance_checkbox"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp" />
-
-            <Button
-                android:id="@+id/btnCounterAppearance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/btn_outline"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="@string/btn_counter_appearance"
+                android:text="@string/btn_quick_menu_settings"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnNotifications"
+                android:id="@+id/btnAppearance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/btn_notifications"
+                android:text="@string/btn_appearance"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnChangeBackground"
+                android:id="@+id/btnFormatSettings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/btn_change_background"
+                android:text="@string/btn_format_settings"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnSetContact"
+                android:id="@+id/btnReorderCounters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
+                android:text="@string/btn_reorder_counters"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnNotifyContact"
+                android:id="@+id/btnImportCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/btn_notify_contact"
+                android:text="@string/btn_import_calendar"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:visibility="gone" />
+                android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnRemoveContact"
+                android:id="@+id/btnExportBackup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/btn_remove_contact"
+                android:text="@string/btn_export_backup"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:visibility="gone" />
+                android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btnDeleteCounter"
+                android:id="@+id/btnImportBackup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/btn_outline"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
-                android:text="@string/btn_delete_counter"
+                android:text="@string/btn_import_backup"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvCounterSettingsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/perCounterActions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnSetDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_set_date"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <CheckBox
+                    android:id="@+id/cbCountdownToNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/countdown_to_next"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <CheckBox
+                    android:id="@+id/cbIsBirthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/is_birthday"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnBirthdaySettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_birthday_settings"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnSetMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_set_message"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <CheckBox
+                    android:id="@+id/cbShowMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/show_message"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnSetName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_set_name"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <CheckBox
+                    android:id="@+id/cbShowName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/show_name"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <CheckBox
+                    android:id="@+id/cbCustomAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/custom_appearance_checkbox"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnCounterAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_counter_appearance"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnNotifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_notifications"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnChangeBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_change_background"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnSetContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnNotifyContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_notify_contact"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnRemoveContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_remove_contact"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnDeleteCounter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/btn_outline"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="@string/btn_delete_counter"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddCounter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_outline"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:text="@string/btn_add_counter"
                 android:textAllCaps="false"
                 android:textColor="@color/text_primary"
                 android:textSize="17sp" />
 
         </LinearLayout>
+    </ScrollView>
 
-        <Button
-            android:id="@+id/btnAddCounter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_outline"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/btn_add_counter"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="17sp" />
-
-    </LinearLayout>
-</ScrollView>
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/btn_circle"
+        android:contentDescription="@string/back"
+        android:padding="12dp"
+        android:src="@drawable/ic_back" />
+</FrameLayout>

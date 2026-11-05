@@ -53,6 +53,11 @@
             android:theme="@style/Theme.AnniversaryCounter" />
 
         <activity
+            android:name=".QuickMenuSettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AnniversaryCounter" />
+
+        <activity
             android:name=".CounterSettingsActivity"
             android:exported="false"
             android:theme="@style/Theme.AnniversaryCounter" />

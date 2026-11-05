@@ -194,4 +194,14 @@
         <item>Months</item>
         <item>Years</item>
     </string-array>
+
+    <string name="menu_page_edit">Edit</string>
+    <string name="menu_page_display">Display</string>
+    <string name="menu_page_notifications">Notifications</string>
+    <string name="menu_page_manage">Manage</string>
+    <string name="btn_quick_menu_settings">Customize quick menu</string>
+    <string name="quick_menu_settings_hint">Choose what appears in the slide-up menu on the main screen.</string>
+    <string name="quick_menu_empty">Nothing is selected for the quick menu.</string>
+    <string name="quick_menu_toggle">Open or close the quick menu</string>
+    <string name="quick_menu_counter_position">Counter %1$d of %2$d</string>
 </resources>

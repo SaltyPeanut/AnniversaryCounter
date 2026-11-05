@@ -194,4 +194,14 @@
         <item>Meses</item>
         <item>Años</item>
     </string-array>
+
+    <string name="menu_page_edit">Editar</string>
+    <string name="menu_page_display">Mostrar</string>
+    <string name="menu_page_notifications">Notificaciones</string>
+    <string name="menu_page_manage">Gestionar</string>
+    <string name="btn_quick_menu_settings">Personalizar menú rápido</string>
+    <string name="quick_menu_settings_hint">Elige qué aparece en el menú desplegable de la pantalla principal.</string>
+    <string name="quick_menu_empty">No hay nada seleccionado para el menú rápido.</string>
+    <string name="quick_menu_toggle">Abrir o cerrar el menú rápido</string>
+    <string name="quick_menu_counter_position">Contador %1$d de %2$d</string>
 </resources>

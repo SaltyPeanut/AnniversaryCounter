@@ -1,18 +1,14 @@
 package de.anniversarycounter;
 
 import android.Manifest;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -126,6 +122,10 @@ public class CounterSettingsActivity extends AppCompatActivity {
         Button btnReorderCounters = findViewById(R.id.btnReorderCounters);
         btnReorderCounters.setOnClickListener(v ->
                 startActivity(new Intent(this, CounterOrderActivity.class)));
+
+        Button btnQuickMenuSettings = findViewById(R.id.btnQuickMenuSettings);
+        btnQuickMenuSettings.setOnClickListener(v ->
+                startActivity(new Intent(this, QuickMenuSettingsActivity.class)));
 
         Button btnExportBackup = findViewById(R.id.btnExportBackup);
         Button btnImportBackup = findViewById(R.id.btnImportBackup);
@@ -293,112 +293,33 @@ public class CounterSettingsActivity extends AppCompatActivity {
     }
 
     private void pickContact() {
-        if (counter == null) {
-            return;
+        if (counter != null) {
+            CounterActions.pickContact(this, REQUEST_PICK_CONTACT);
         }
-        // Der Kontaktwaehler gibt Lesezugriff auf genau den gewaehlten Eintrag, READ_CONTACTS
-        // ist dafuer nicht noetig.
-        Intent pick = new Intent(Intent.ACTION_PICK);
-        pick.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-        try {
-            startActivityForResult(pick, REQUEST_PICK_CONTACT);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, R.string.contact_pick_failed, Toast.LENGTH_LONG).show();
-        }
-    }
-
-    private void saveContactFromPicker(Uri uri) {
-        String[] projection = {
-                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-                ContactsContract.CommonDataKinds.Phone.NUMBER,
-        };
-        try (Cursor cursor = getContentResolver().query(uri, projection, null, null, null)) {
-            if (cursor != null && cursor.moveToFirst() && !cursor.isNull(1)) {
-                saveContact(cursor.getString(0), cursor.getString(1));
-                return;
-            }
-        } catch (SecurityException e) {
-            // faellt unten auf die Fehlermeldung durch
-        }
-        Toast.makeText(this, R.string.contact_pick_failed, Toast.LENGTH_LONG).show();
     }
 
     private void saveContact(String name, String phone) {
-        if (counter == null) {
-            return;
+        if (counter != null) {
+            CounterActions.saveContact(this, counter, name, phone, this::bindContact);
         }
-        counter.contactName = name;
-        counter.contactPhone = phone;
-        AnniversaryCounterStore.update(this, counter);
-        bindContact();
     }
 
     private void editDate() {
-        if (counter == null) {
-            return;
+        if (counter != null) {
+            CounterActions.editDate(this, counter, () -> { });
         }
-        DateTimePickerFlow.pick(this, counter.start, start -> {
-            counter.start = start;
-            AnniversaryCounterStore.update(this, counter);
-            AnniversaryCounterWidgetProvider.updateAllWidgets(this);
-            // Meilenstein-Zieldaten haengen am Startzeitpunkt und muessen neu geplant werden
-            MilestoneScheduler.scheduleForCounter(this, counter);
-        });
     }
 
     private void editMessage() {
-        if (counter == null) {
-            return;
+        if (counter != null) {
+            CounterActions.editMessage(this, counter, () -> { });
         }
-        EditText input = new EditText(this);
-        input.setHint(R.string.custom_message_hint);
-        if (counter.message != null) {
-            input.setText(counter.message);
-            input.setSelection(counter.message.length());
-        }
-
-        int padding = (int) (16 * getResources().getDisplayMetrics().density);
-        input.setPadding(padding, padding, padding, padding);
-
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.custom_message_dialog_title)
-                .setView(input)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    String value = input.getText().toString().trim();
-                    counter.message = value.isEmpty() ? null : value;
-                    AnniversaryCounterStore.update(this, counter);
-                    AnniversaryCounterWidgetProvider.updateAllWidgets(this);
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
     }
 
     private void editName() {
-        if (counter == null) {
-            return;
+        if (counter != null) {
+            CounterActions.editName(this, counter, () -> buildCounterTabs(counter.id));
         }
-        EditText input = new EditText(this);
-        input.setHint(R.string.name_dialog_hint);
-        if (counter.name != null) {
-            input.setText(counter.name);
-            input.setSelection(counter.name.length());
-        }
-
-        int padding = (int) (16 * getResources().getDisplayMetrics().density);
-        input.setPadding(padding, padding, padding, padding);
-
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.name_dialog_title)
-                .setView(input)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    String value = input.getText().toString().trim();
-                    counter.name = value.isEmpty() ? null : value;
-                    AnniversaryCounterStore.update(this, counter);
-                    AnniversaryCounterWidgetProvider.updateAllWidgets(this);
-                    buildCounterTabs(counter.id);
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
     }
 
     private void openNotificationSettings() {
@@ -478,7 +399,9 @@ public class CounterSettingsActivity extends AppCompatActivity {
             if (requestCode == REQUEST_IMPORT_BACKUP) {
                 restoreBackup(data.getData());
             } else if (requestCode == REQUEST_PICK_CONTACT) {
-                saveContactFromPicker(data.getData());
+                if (counter != null) {
+                    CounterActions.saveContactFromPicker(this, counter, data.getData(), this::bindContact);
+                }
             }
         }
     }
@@ -536,21 +459,8 @@ public class CounterSettingsActivity extends AppCompatActivity {
     }
 
     private void deleteCounter() {
-        if (counter == null) {
-            return;
+        if (counter != null) {
+            CounterActions.delete(this, counter, () -> buildCounterTabs(null));
         }
-        String label = counter.displayLabel(this);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.delete_counter_title)
-                .setMessage(getString(R.string.delete_counter_message, label))
-                .setPositiveButton(R.string.delete_confirm, (dialog, which) -> {
-                    MilestoneScheduler.cancelForCounter(this, counter);
-                    BackgroundImageStore.clear(this, counter.id);
-                    AnniversaryCounterStore.delete(this, counter.id);
-                    AnniversaryCounterWidgetProvider.updateAllWidgets(this);
-                    buildCounterTabs(null);
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
     }
 }
