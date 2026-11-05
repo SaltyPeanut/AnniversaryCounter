@@ -8,10 +8,10 @@ android {
 
     defaultConfig {
         applicationId "anniversary.counter"
-        minSdk 26          // java.time ist ab Android 8.0 direkt verfuegbar
+        minSdk 26 
         targetSdk = 37
-        versionCode 3
-        versionName "1.0"
+        versionCode 4
+        versionName "2.0"
     }
 
     buildTypes {
