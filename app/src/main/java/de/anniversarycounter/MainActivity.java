@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private View vScrim;
     private TextView tvAppTitle;
 
+    /** Zaehler vor einem Neuaufbau (z. B. Designwechsel); die Liste des Adapters ist dann noch leer. */
+    private String restoredCounterId;
+
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final Runnable ticker = new Runnable() {
         @Override
@@ -53,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            // Neuaufbau: Android liefert das urspruengliche Intent, der Sprung ist aber schon erfolgt.
+            getIntent().removeExtra(EXTRA_COUNTER_ID);
+            restoredCounterId = savedInstanceState.getString(EXTRA_COUNTER_ID);
+        }
         if (!AppSettings.hasLanguage(this)) {
             startActivity(new Intent(this, LanguageSelectionActivity.class));
             finish();
@@ -81,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        AnniversaryCounter counter = currentCounter();
+        if (counter != null) {
+            outState.putString(EXTRA_COUNTER_ID, counter.id);
+        }
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         handler.post(ticker);
@@ -97,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        // Gesprungen wird im folgenden onResume, wenn die Zaehler-Liste aktuell ist.
         setIntent(intent);
-        jumpToCounterFromIntent(intent);
     }
 
     /**
@@ -110,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
         tvAppTitle.setTypeface(AppSettings.typeface(this, AppSettings.Target.TEXT));
         tvAppTitle.setTextColor(AppSettings.textColor(this, AppSettings.Target.TEXT));
 
-        String keepId = currentCounter() != null ? currentCounter().id : null;
+        String keepId = currentCounter() != null ? currentCounter().id : restoredCounterId;
+        restoredCounterId = null;
 
         List<AnniversaryCounter> counters = AnniversaryCounterStore.loadAll(this);
         adapter.setCounters(counters);
@@ -154,10 +172,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Tippt man auf eine Meilenstein-Benachrichtigung, springt der Pager direkt zum Zaehler. */
+    /**
+     * Tippt man auf eine Meilenstein-Benachrichtigung oder das Widget, springt der Pager einmalig
+     * zum Zaehler. Das Extra wird entfernt, sonst ginge es bei jedem onResume wieder dorthin zurueck.
+     */
     private void jumpToCounterFromIntent(Intent intent) {
         String counterId = intent.getStringExtra(EXTRA_COUNTER_ID);
         if (counterId != null) {
+            intent.removeExtra(EXTRA_COUNTER_ID);
             jumpToCounter(counterId, false);
         }
     }
