@@ -6,4 +6,32 @@
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="colorAccent">@color/text_primary</item>
     </style>
+
+    <!-- Framework-Parent, weil DatePickerDialog/TimePickerDialog Framework-Dialoge sind: unter einem
+         AppCompat-Parent bleibt deren Hintergrund fest weiss. Dunkle Variante in values-night. -->
+    <style name="Base.ThemeOverlay.AnniversaryCounter.PickerDialog" parent="android:Theme.Material.Light.Dialog.Alert" />
+
+    <!-- Datums- und Uhrzeitdialog in den App-Farben. Datum mit Raedern statt Kalender: Jahr/Monat
+         direkt waehlbar (GitHub-Issue) -->
+    <style name="ThemeOverlay.AnniversaryCounter.PickerDialog" parent="Base.ThemeOverlay.AnniversaryCounter.PickerDialog">
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:colorAccent">@color/text_primary</item>
+        <item name="android:datePickerStyle">@style/Widget.AnniversaryCounter.SpinnerDatePicker</item>
+        <item name="android:timePickerStyle">@style/Widget.AnniversaryCounter.TimePicker</item>
+    </style>
+
+    <!-- Kopf und Ziffernblatt sind im Framework fest grau -->
+    <style name="Widget.AnniversaryCounter.TimePicker" parent="android:Widget.Material.TimePicker">
+        <item name="android:headerBackground">@color/bg</item>
+        <item name="android:numbersBackgroundColor">@color/icon_bg</item>
+        <item name="android:numbersTextColor">@color/picker_number_text</item>
+        <item name="android:numbersInnerTextColor">@color/picker_number_text</item>
+    </style>
+
+    <style name="Widget.AnniversaryCounter.SpinnerDatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
 </resources>

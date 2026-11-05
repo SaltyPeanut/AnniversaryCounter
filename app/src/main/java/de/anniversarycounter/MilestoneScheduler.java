@@ -21,6 +21,8 @@ public final class MilestoneScheduler {
     static final String EXTRA_MILESTONE_KEY = "milestone_key";
     static final String EXTRA_MILESTONE_LABEL = "milestone_label";
 
+    private static final String CUSTOM_PREFIX = "custom:";
+
     private MilestoneScheduler() {
     }
 
@@ -34,13 +36,23 @@ public final class MilestoneScheduler {
         cancelForCounter(context, counter);
 
         for (Milestone.Standard standard : Milestone.Standard.values()) {
-            if (counter.enabledStandardMilestones.contains(standard.name())) {
+            if (!counter.enabledStandardMilestones.contains(standard.name())) {
+                continue;
+            }
+            if (standard == Milestone.Standard.YEARLY) {
+                int years = nextYearlyAmount(counter);
+                // Bei ausgeblendetem Alter darf es auch in der Benachrichtigung nicht auftauchen.
+                String label = counter.ageEnabled()
+                        ? context.getResources().getQuantityString(R.plurals.years, years, years)
+                        : context.getString(R.string.milestone_yearly_label);
+                schedule(context, counter, standard.name(), years, Milestone.Unit.YEARS, label);
+            } else {
                 schedule(context, counter, standard.name(), standard.amount, standard.unit,
                         context.getString(standard.labelRes));
             }
         }
         for (CustomMilestone custom : counter.customMilestones) {
-            schedule(context, counter, "custom:" + custom.id, custom.amount, custom.unit,
+            schedule(context, counter, CUSTOM_PREFIX + custom.id, custom.amount, custom.unit,
                     formatCustomLabel(context, custom));
         }
     }
@@ -51,13 +63,43 @@ public final class MilestoneScheduler {
             cancel(context, counter.id, standard.name());
         }
         for (CustomMilestone custom : counter.customMilestones) {
-            cancel(context, counter.id, "custom:" + custom.id);
+            cancel(context, counter.id, CUSTOM_PREFIX + custom.id);
         }
+    }
+
+    /**
+     * Ob der Meilenstein noch zum Zaehler gehoert. Faengt Alarme ab, die nicht mehr storniert
+     * werden konnten, etwa aus aelteren App-Versionen oder nach einem Backup-Import.
+     */
+    static boolean isActive(AnniversaryCounter counter, String milestoneKey) {
+        if (!milestoneKey.startsWith(CUSTOM_PREFIX)) {
+            return counter.enabledStandardMilestones.contains(milestoneKey);
+        }
+        for (CustomMilestone custom : counter.customMilestones) {
+            if (milestoneKey.equals(CUSTOM_PREFIX + custom.id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Anzahl Jahre am naechsten Jahrestag; immer ab dem Start gerechnet, damit der 29.02. nicht wandert. */
+    private static int nextYearlyAmount(AnniversaryCounter counter) {
+        LocalDateTime now = LocalDateTime.now();
+        int years = Math.max(1, now.getYear() - counter.start.getYear());
+        while (!targetTime(counter, years, Milestone.Unit.YEARS).isAfter(now)) {
+            years++;
+        }
+        return years;
+    }
+
+    private static LocalDateTime targetTime(AnniversaryCounter counter, int amount, Milestone.Unit unit) {
+        return applyUnit(counter.start, amount, unit).toLocalDate().atTime(9, 0);
     }
 
     private static void schedule(Context context, AnniversaryCounter counter, String milestoneKey,
                                   int amount, Milestone.Unit unit, String label) {
-        LocalDateTime target = applyUnit(counter.start, amount, unit).toLocalDate().atTime(9, 0);
+        LocalDateTime target = targetTime(counter, amount, unit);
         if (!target.isAfter(LocalDateTime.now())) {
             return;
         }

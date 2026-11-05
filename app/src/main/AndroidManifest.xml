@@ -3,6 +3,7 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
 
     <application
         android:name=".AnniversaryCounterApp"
@@ -47,6 +48,21 @@
             android:theme="@style/Theme.AnniversaryCounter" />
 
         <activity
+            android:name=".BirthdaySettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AnniversaryCounter" />
+
+        <activity
+            android:name=".TutorialActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AnniversaryCounter" />
+
+        <activity
+            android:name=".QuickMenuSettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AnniversaryCounter" />
+
+        <activity
             android:name=".CounterSettingsActivity"
             android:exported="false"
             android:theme="@style/Theme.AnniversaryCounter" />
@@ -57,7 +73,17 @@
             android:theme="@style/Theme.AnniversaryCounter" />
 
         <activity
+            android:name=".CalendarImportActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AnniversaryCounter" />
+
+        <activity
             android:name=".AppearanceSettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AnniversaryCounter" />
+
+        <activity
+            android:name=".FormatSettingsActivity"
             android:exported="false"
             android:theme="@style/Theme.AnniversaryCounter" />
 

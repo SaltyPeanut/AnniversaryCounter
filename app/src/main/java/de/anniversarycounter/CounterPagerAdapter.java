@@ -90,6 +90,7 @@ public class CounterPagerAdapter extends RecyclerView.Adapter<CounterPagerAdapte
         private final TextView tvName;
         private final TextView tvSubtitle;
         private final TextView tvCounter;
+        private final TextView tvAge;
         private final TextView tvStart;
         private AnniversaryCounter counter;
 
@@ -98,6 +99,7 @@ public class CounterPagerAdapter extends RecyclerView.Adapter<CounterPagerAdapte
             tvName = itemView.findViewById(R.id.tvName);
             tvSubtitle = itemView.findViewById(R.id.tvSubtitle);
             tvCounter = itemView.findViewById(R.id.tvCounter);
+            tvAge = itemView.findViewById(R.id.tvAge);
             tvStart = itemView.findViewById(R.id.tvStart);
 
             tvCounter.setOnClickListener(v -> {
@@ -143,7 +145,8 @@ public class CounterPagerAdapter extends RecyclerView.Adapter<CounterPagerAdapte
                 tvName.setVisibility(View.GONE);
             }
 
-            DateDiff diff = DateDiff.between(counter.start, LocalDateTime.now());
+            LocalDateTime now = LocalDateTime.now();
+            DateDiff diff = DateDiff.between(counter.displayTarget(now), now);
             boolean showTotals = Boolean.TRUE.equals(showTotalsById.get(counter.id));
 
             if (counter.showMessage) {
@@ -153,21 +156,24 @@ public class CounterPagerAdapter extends RecyclerView.Adapter<CounterPagerAdapte
                 tvSubtitle.setVisibility(View.GONE);
             }
             tvCounter.setText(showTotals ? diff.formatTotals(context) : diff.formatBreakdown(context));
+
+            String age = counter.ageText(context, now);
+            tvAge.setVisibility(age != null ? View.VISIBLE : View.GONE);
+            tvAge.setText(age);
+            tvAge.setTypeface(textTypeface);
+            tvAge.setTextColor(textColor);
+
             tvStart.setText(context.getString(
-                    R.string.start_prefix, counter.start.format(AnniversaryCounter.DISPLAY_FORMAT)));
+                    R.string.start_prefix, DisplayFormats.formatDateTime(context, counter.start)));
         }
 
         private void share() {
             if (counter == null) {
                 return;
             }
-            DateDiff diff = DateDiff.between(counter.start, LocalDateTime.now());
-            String text = AnniversaryCounterStore.subtitleText(context, counter, diff.future)
-                    + "\n" + diff.formatBreakdown(context).replace("\n", " ");
-
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, text);
+            intent.putExtra(Intent.EXTRA_TEXT, CounterMessage.text(context, counter));
             context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_title)));
         }
     }

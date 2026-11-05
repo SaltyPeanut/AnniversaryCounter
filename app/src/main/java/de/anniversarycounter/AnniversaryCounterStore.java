@@ -145,6 +145,11 @@ public final class AnniversaryCounterStore {
                     customArray.put(customObj);
                 }
                 obj.put("customMilestones", customArray);
+                obj.put("countdownToNext", counter.countdownToNext);
+                obj.put("isBirthday", counter.isBirthday);
+                obj.put("showAge", counter.showAge);
+                obj.put("contactName", counter.contactName == null ? JSONObject.NULL : counter.contactName);
+                obj.put("contactPhone", counter.contactPhone == null ? JSONObject.NULL : counter.contactPhone);
 
                 array.put(obj);
             }
@@ -180,6 +185,12 @@ public final class AnniversaryCounterStore {
                 counter.colorValueText = obj.optInt("colorValueText", AppSettings.COLOR_DEFAULT);
                 counter.fontFamilyNumbers = obj.optString("fontFamilyNumbers", AppSettings.FONT_DEFAULT);
                 counter.colorValueNumbers = obj.optInt("colorValueNumbers", AppSettings.COLOR_DEFAULT);
+                counter.countdownToNext = obj.optBoolean("countdownToNext", false);
+                counter.showAge = obj.optBoolean("showAge", false);
+                // Aeltere Staende kennen isBirthday nicht: eingeschaltetes Alter bleibt so sichtbar.
+                counter.isBirthday = obj.optBoolean("isBirthday", counter.showAge);
+                counter.contactName = obj.isNull("contactName") ? null : obj.getString("contactName");
+                counter.contactPhone = obj.isNull("contactPhone") ? null : obj.getString("contactPhone");
 
                 if (obj.has("standardMilestones")) {
                     JSONArray standardArray = obj.getJSONArray("standardMilestones");

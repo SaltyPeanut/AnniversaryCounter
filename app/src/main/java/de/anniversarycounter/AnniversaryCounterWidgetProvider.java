@@ -84,7 +84,14 @@ public class AnniversaryCounterWidgetProvider extends AppWidgetProvider {
             return views;
         }
 
-        DateDiff diff = DateDiff.between(counter.start, LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now();
+        DateDiff diff = DateDiff.between(counter.displayTarget(now), now);
+
+        String age = counter.ageText(context, now);
+        if (age != null) {
+            views.setTextViewText(R.id.widgetAge, age);
+            views.setViewVisibility(R.id.widgetAge, View.VISIBLE);
+        }
 
         if (loadShowSubtitle(context, appWidgetId)) {
             views.setViewVisibility(R.id.widgetSubtitle, View.VISIBLE);

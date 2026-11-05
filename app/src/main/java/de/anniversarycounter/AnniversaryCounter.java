@@ -3,18 +3,14 @@ package de.anniversarycounter;
 import android.content.Context;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 /** Ein einzelner Zähler: Startzeitpunkt, optionaler Name, optionale eigene Nachricht. */
 public class AnniversaryCounter {
-
-    public static final DateTimeFormatter DISPLAY_FORMAT =
-            DateTimeFormatter.ofPattern("dd.MM.yyyy 'um' HH:mm", Locale.GERMANY);
 
     public final String id;
     public String name;
@@ -34,6 +30,17 @@ public class AnniversaryCounter {
     public Set<String> enabledStandardMilestones = new HashSet<>();
     public List<CustomMilestone> customMilestones = new ArrayList<>();
 
+    /** Optional hinterlegter Kontakt, den man direkt benachrichtigen kann. */
+    public String contactName;
+    public String contactPhone;
+
+    /** true: zaehlt bis zum naechsten Jahrestag herunter und springt danach aufs Folgejahr. */
+    public boolean countdownToNext = false;
+
+    /** Geburtstag: erst damit laesst sich die Altersanzeige ueber {@link #showAge} einschalten. */
+    public boolean isBirthday = false;
+    public boolean showAge = false;
+
     public AnniversaryCounter(String id, String name, LocalDateTime start, String message) {
         this.id = id;
         this.name = name;
@@ -46,6 +53,43 @@ public class AnniversaryCounter {
         if (name != null && !name.isEmpty()) {
             return name;
         }
-        return context.getString(R.string.counter_fallback_label, start.format(DISPLAY_FORMAT));
+        return context.getString(R.string.counter_fallback_label, DisplayFormats.formatDateTime(context, start));
+    }
+
+    /** Zeitpunkt, gegen den die Anzeige rechnet: der Start oder der naechste Jahrestag. */
+    public LocalDateTime displayTarget(LocalDateTime now) {
+        if (!countdownToNext || start.isAfter(now)) {
+            return start;
+        }
+        // Immer vom Start aus rechnen, damit ein 29.02. nicht dauerhaft zum 28.02. wird.
+        long years = Math.max(1, now.getYear() - start.getYear());
+        while (!start.plusYears(years).isAfter(now)) {
+            years++;
+        }
+        return start.plusYears(years);
+    }
+
+    /** Ob das Alter erscheinen soll; {@link #showAge} bleibt beim Abschalten von {@link #isBirthday} erhalten. */
+    public boolean ageEnabled() {
+        return isBirthday && showAge;
+    }
+
+    /** Text wie "Alter: 36 Jahre", oder null wenn ausgeblendet bzw. der Start noch bevorsteht. */
+    public String ageText(Context context, LocalDateTime now) {
+        if (!ageEnabled() || start.isAfter(now)) {
+            return null;
+        }
+        int age = (int) ChronoUnit.YEARS.between(start, now);
+        return context.getString(R.string.age_label,
+                context.getResources().getQuantityString(R.plurals.years, age, age));
+    }
+
+    public boolean hasContact() {
+        return contactPhone != null && !contactPhone.isEmpty();
+    }
+
+    /** Kontaktname fuer die Anzeige; Kontakte ohne Namen werden ueber die Nummer angezeigt. */
+    public String contactLabel() {
+        return contactName != null && !contactName.isEmpty() ? contactName : contactPhone;
     }
 }

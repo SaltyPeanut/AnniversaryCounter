@@ -3,36 +3,36 @@
     <string name="app_name">Anniversary Counter</string>
     <string name="title">Anniversary Counter</string>
 
-    <string name="subtitle_default">♥  Enamorados desde  ♥</string>
+    <string name="subtitle_default">Tiempo transcurrido</string>
     <string name="subtitle_future">Tiempo restante</string>
 
     <string name="no_date">--</string>
     <string name="no_date_hint">Aún no se ha establecido una fecha</string>
     <string name="start_prefix">Inicio: %1$s</string>
 
-    <string name="btn_set_date">Cambiar fecha de inicio</string>
-    <string name="btn_set_message">Cambiar mensaje</string>
-    <string name="btn_set_name">Renombrar contador</string>
-    <string name="btn_add_counter">+ Nuevo contador</string>
-    <string name="btn_delete_counter">Eliminar contador</string>
-    <string name="btn_notifications">Notificaciones de hitos</string>
-    <string name="btn_change_background">Cambiar fondo</string>
+    <string name="btn_set_date">Cambiar fecha y hora</string>
+    <string name="btn_set_message">Cambiar título</string>
+    <string name="btn_set_name">Cambiar nombre</string>
+    <string name="btn_add_counter">+ Nuevo evento</string>
+    <string name="btn_delete_counter">Eliminar evento</string>
+    <string name="btn_notifications">Configurar recordatorios</string>
+    <string name="btn_change_background">Cambiar imagen de fondo</string>
     <string name="settings">Ajustes</string>
     <string name="back">Atrás</string>
     <string name="settings_section_global">General</string>
-    <string name="use_light_theme">Usar tema claro</string>
-    <string name="show_message">Mostrar mensaje</string>
+    <string name="use_light_theme">Tema claro</string>
+    <string name="show_message">Mostrar título</string>
     <string name="show_name">Mostrar nombre</string>
-    <string name="custom_appearance_checkbox">Usar fuente y color propios para este contador</string>
-    <string name="btn_counter_appearance">Fuente y color para este contador</string>
+    <string name="custom_appearance_checkbox">Usar fuente y color propios</string>
+    <string name="btn_counter_appearance">Personalizar fuente y color</string>
     <string name="appearance_settings_title_counter">Fuente y color para %1$s</string>
-    <string name="btn_appearance">Fuente y color (global)</string>
+    <string name="btn_appearance">Fuente y color para todos los eventos</string>
     <string name="btn_reorder_counters">Cambiar orden</string>
     <string name="reorder_title">Cambiar orden</string>
-    <string name="reorder_hint">Arrastra el icono del asa para reordenar los contadores</string>
+    <string name="reorder_hint">Arrastra el asa para cambiar el orden</string>
     <string name="reorder_handle_description">Arrastrar para ordenar</string>
     <string name="appearance_settings_title">Fuente y color</string>
-    <string name="appearance_preview_text">♥  Enamorados desde  ♥</string>
+    <string name="appearance_preview_text">Tiempo transcurrido</string>
     <string name="appearance_preview_numbers">3 años 42 días</string>
     <string name="appearance_font_section">Fuente</string>
     <string name="appearance_color_section">Color del texto</string>
@@ -48,30 +48,42 @@
     <string name="font_monospace">Monospace</string>
     <string name="font_cursive">Cursiva</string>
     <string name="color_swatch_description">Elegir color del texto</string>
-    <string name="btn_export_backup">Exportar copia de seguridad</string>
-    <string name="btn_import_backup">Restaurar copia de seguridad</string>
+    <string name="btn_export_backup">Guardar datos</string>
+    <string name="btn_import_backup">Restaurar datos</string>
     <string name="backup_share_title">Compartir copia de seguridad</string>
-    <string name="backup_restore_confirm_title">¿Restaurar copia de seguridad?</string>
-    <string name="backup_restore_confirm_message">Todos los contadores existentes se sustituirán por la copia de seguridad. ¿Continuar?</string>
+    <string name="backup_restore_confirm_title">¿Restaurar datos?</string>
+    <string name="backup_restore_confirm_message">Todos los eventos existentes se sustituirán por la copia de seguridad. ¿Continuar?</string>
     <string name="backup_restore_confirm_button">Restaurar</string>
     <string name="backup_export_failed">No se pudo crear la copia de seguridad</string>
     <string name="backup_import_failed">No se pudo leer la copia de seguridad. ¿Archivo no válido?</string>
-    <string name="backup_import_success">%1$d contadores restaurados</string>
-    <string name="hint">Toca el contador para ver los totales · mantén pulsado para compartir</string>
+    <string name="backup_import_success">Eventos restaurados: %1$d</string>
+    <string name="hint">Toca para ver el tiempo total · mantén pulsado para compartir</string>
 
-    <string name="counter_fallback_label">Contador del %1$s</string>
+    <string name="counter_fallback_label">Evento del %1$s</string>
     <string name="name_dialog_title">Nombre (opcional)</string>
     <string name="name_dialog_hint">p. ej. «Mamá y Papá»</string>
-    <string name="delete_counter_title">¿Eliminar contador?</string>
+    <string name="delete_counter_title">¿Eliminar evento?</string>
     <string name="delete_counter_message">«%1$s» se eliminará de forma permanente.</string>
     <string name="delete_confirm">Eliminar</string>
 
     <string name="pick_date">Elegir fecha</string>
     <string name="pick_time">Elegir hora</string>
+
+    <string name="date_time_format">%1$s a las %2$s</string>
+    <string name="btn_format_settings">Fecha y números</string>
+    <string name="format_settings_title">Fecha y números</string>
+    <string name="format_section_date">Formato de fecha</string>
+    <string name="format_section_time">Hora</string>
+    <string name="format_section_numbers">Separador de miles</string>
+    <string name="format_auto">Automático (%1$s)</string>
+    <string name="format_time_auto_system">Como el sistema (%1$s)</string>
+    <string name="format_time_24h">24 horas (%1$s)</string>
+    <string name="format_time_12h">12 horas (%1$s)</string>
+    <string name="format_number_none">Sin separador (%1$s)</string>
     <string name="share_title">Compartir con</string>
     <string name="date_read_failed">No se pudo leer la fecha guardada.</string>
 
-    <string name="custom_message_dialog_title">Mensaje personalizado</string>
+    <string name="custom_message_dialog_title">Título personalizado</string>
     <string name="custom_message_hint">p. ej. «Para siempre»</string>
 
     <string name="total_months">%1$s meses en total</string>
@@ -111,17 +123,17 @@
     <string name="widget_unit_months">Mostrar meses</string>
     <string name="widget_unit_days">Mostrar días</string>
     <string name="widget_unit_hours">Mostrar horas</string>
-    <string name="widget_show_subtitle">Mostrar mensaje como encabezado</string>
+    <string name="widget_show_subtitle">Mostrar título</string>
     <string name="widget_show_background">Mostrar imagen de fondo</string>
-    <string name="widget_show_background_hint">Solo disponible si el contador tiene una imagen de fondo propia</string>
+    <string name="widget_show_background_hint">Solo disponible si el evento tiene su propia imagen de fondo</string>
     <string name="widget_save">Guardar</string>
     <string name="widget_select_at_least_one">Selecciona al menos una unidad</string>
     <string name="widget_no_date">No hay fecha establecida. Configúrala en la app</string>
-    <string name="widget_counter_deleted">El contador se ha eliminado. Vuelve a configurar el widget</string>
-    <string name="widget_select_counter">Seleccionar contador</string>
-    <string name="widget_no_counters">Primero crea un contador en la app</string>
+    <string name="widget_counter_deleted">El evento se ha eliminado. Vuelve a configurar el widget</string>
+    <string name="widget_select_counter">Seleccionar evento</string>
+    <string name="widget_no_counters">Primero crea un evento en la app</string>
 
-    <string name="milestone_settings_title">Notificaciones para %1$s</string>
+    <string name="milestone_settings_title">Recordatorios de %1$s</string>
     <string name="milestone_days_100">100 días</string>
     <string name="milestone_months_6">6 meses</string>
     <string name="milestone_years_1">1 año</string>
@@ -129,26 +141,84 @@
     <string name="milestone_days_1000">1000 días</string>
     <string name="milestone_years_5">5 años</string>
     <string name="milestone_years_10">10 años</string>
-    <string name="milestone_custom_section_title">Hitos personalizados</string>
-    <string name="milestone_add_custom">+ Añadir hito</string>
+    <string name="milestone_yearly">Cada año en el aniversario</string>
+    <string name="milestone_custom_section_title">Recordatorios personalizados</string>
+    <string name="milestone_add_custom">+ Añadir recordatorio</string>
     <string name="milestone_amount_hint">Cantidad</string>
-    <string name="milestone_remove">Eliminar hito</string>
+    <string name="milestone_remove">Eliminar recordatorio</string>
     <string name="milestone_remove_symbol">✕</string>
     <string name="milestone_notification_text">¡%1$s alcanzado! ♥</string>
-    <string name="milestone_channel_name">Hitos</string>
-    <string name="milestone_channel_description">Recordatorios en momentos especiales de un contador</string>
+    <string name="milestone_channel_name">Recordatorios</string>
+    <string name="milestone_channel_description">Recordatorios en momentos especiales de un evento</string>
 
     <string name="counter_settings_title">Ajustes de %1$s</string>
     <string name="counter_settings_title_generic">Ajustes</string>
 
-    <string name="background_settings_title">Fondo de %1$s</string>
+    <string name="background_settings_title">Imagen de fondo de %1$s</string>
     <string name="background_pick_from_gallery">Elegir imagen de la galería</string>
-    <string name="background_use_default">Usar imagen predeterminada</string>
+    <string name="background_use_default">Restaurar imagen predeterminada</string>
     <string name="background_save_failed">No se pudo guardar la imagen</string>
+
+    <string name="btn_import_calendar">Añadir del calendario</string>
+    <string name="calendar_import_title">Añadir del calendario</string>
+    <string name="calendar_import_hint">Eventos anuales de tus calendarios. Elige cuáles quieres añadir.</string>
+    <string name="calendar_import_empty">No se encontraron eventos anuales. También puedes crearlos tú.</string>
+    <string name="calendar_import_permission_denied">No se puede importar sin acceso al calendario</string>
+    <string name="calendar_import_select_all">Seleccionar todo</string>
+    <string name="calendar_import_deselect_all">Deseleccionar todo</string>
+    <string name="calendar_import_button">Importar (%1$d)</string>
+    <string name="calendar_import_details">%1$s · %2$s</string>
+    <string name="calendar_import_already_present">%1$s · ya añadido</string>
+    <plurals name="calendar_import_success">
+        <item quantity="one">%d evento añadido</item>
+        <item quantity="other">%d eventos añadidos</item>
+    </plurals>
+
+    <string name="countdown_to_next">Cuenta atrás hasta el próximo aniversario</string>
+    <string name="show_age">Mostrar edad</string>
+    <string name="is_birthday">Es un cumpleaños</string>
+    <string name="btn_birthday_settings">Opciones de cumpleaños</string>
+    <string name="birthday_settings_title">Opciones de cumpleaños: %1$s</string>
+    <string name="milestone_yearly_label">Aniversario</string>
+    <string name="age_label">Edad: %1$s</string>
+
+    <string name="btn_set_contact">Añadir contacto</string>
+    <string name="btn_change_contact">Contacto: %1$s</string>
+    <string name="btn_notify_contact">Enviar SMS al contacto</string>
+    <string name="btn_remove_contact">Quitar contacto</string>
+    <string name="contact_pick_failed">No se pudo añadir el contacto</string>
+    <string name="contact_no_sms_app">No se encontró ninguna app de SMS</string>
 
     <string-array name="milestone_units">
         <item>Días</item>
         <item>Meses</item>
         <item>Años</item>
     </string-array>
+
+    <string name="menu_page_edit">Editar</string>
+    <string name="menu_page_display">Mostrar</string>
+    <string name="menu_page_notifications">Recordatorios</string>
+    <string name="menu_page_manage">Gestionar</string>
+    <string name="btn_quick_menu_settings">Personalizar menú rápido</string>
+    <string name="quick_menu_settings_hint">Elige qué aparece en el menú desplegable de la pantalla principal.</string>
+    <string name="quick_menu_empty">No hay nada seleccionado para el menú rápido.</string>
+    <string name="quick_menu_toggle">Abrir o cerrar el menú rápido</string>
+    <string name="quick_menu_counter_position">Evento %1$d de %2$d</string>
+
+    <string name="tutorial_skip">Omitir</string>
+    <string name="tutorial_next">Siguiente</string>
+    <string name="tutorial_done">Empezar</string>
+    <string name="btn_tutorial">Ver tutorial</string>
+    <string name="tutorial_welcome_title">Bienvenido</string>
+    <string name="tutorial_welcome_body">Esta app te muestra, al segundo, cuánto tiempo ha pasado desde un momento especial o cuánto falta para que llegue.</string>
+    <string name="tutorial_events_title">Tus eventos</string>
+    <string name="tutorial_events_body">Desliza hacia los lados para cambiar de evento. Toca el tiempo para ver el total y mantenlo pulsado para compartirlo.</string>
+    <string name="tutorial_menu_title">El menú rápido</string>
+    <string name="tutorial_menu_body">Desliza hacia arriba desde el borde inferior o toca allí la indicación. Aquí cambias lo más importante. Desliza a izquierda y derecha para ver más páginas.</string>
+    <string name="tutorial_settings_title">Todos los ajustes</string>
+    <string name="tutorial_settings_body">El engranaje de arriba a la derecha abre todos los ajustes, ordenados por grupos. En «General» eliges qué aparece en el menú rápido.</string>
+    <string name="tutorial_reminders_title">Cumpleaños y recordatorios</string>
+    <string name="tutorial_reminders_body">En los ajustes puedes marcar un evento como cumpleaños para ver la edad o hacer una cuenta atrás hasta el próximo aniversario. Los recordatorios te avisan en momentos especiales.</string>
+    <string name="tutorial_more_title">Widget y copia de seguridad</string>
+    <string name="tutorial_more_body">Añade un widget a tu pantalla de inicio para tener tu evento siempre a la vista. Con «Guardar datos» en los ajustes te lo llevas todo a un dispositivo nuevo.</string>
 </resources>

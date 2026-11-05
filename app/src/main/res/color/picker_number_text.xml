@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Zahlen der Uhr: die gewaehlte (activated) liegt auf der Markierung in text_primary. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/bg" android:state_activated="true" />
+    <item android:color="@color/text_primary" />
+</selector>
