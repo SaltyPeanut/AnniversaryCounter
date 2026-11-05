@@ -12,7 +12,7 @@ import java.util.UUID;
  * Dialog-Kette zum Anlegen eines neuen Zaehlers (optionaler Name, dann Datum + Uhrzeit).
  *
  * Wird von {@link MainActivity} (Erststart-Bootstrap, wenn noch kein Zaehler existiert),
- * {@link QuickMenuController} und {@link CounterSettingsActivity} ("+ Neuer Zähler") gemeinsam
+ * {@link QuickMenuController} und {@link CounterSettingsActivity} ("+ Neues Ereignis") gemeinsam
  * genutzt, um die Dialogkette nicht zu duplizieren.
  */
 public final class CounterCreationFlow {

@@ -6,85 +6,85 @@ Minuten, Sekunden.
 
 ## Funktionen
 
-### Zähler
+### Ereignisse
 
 - Datum + Uhrzeit über Dialoge auswählen, jederzeit änderbar; das Datum wird
   über Räder (Tag/Monat/Jahr) gewählt, auch weit zurückliegende Jahre sind so
   direkt einstellbar
 - Läuft live weiter (Aktualisierung jede Sekunde, ohne Drift)
-- Speichert alle Zähler dauerhaft (SharedPreferences), übersteht Neustarts
+- Speichert alle Ereignisse dauerhaft (SharedPreferences), übersteht Neustarts
 - Einheiten mit Wert 0 werden übersprungen
-- Zähler antippen → Gesamtwerte (z. B. „112 Tage gesamt")
-- Zähler lange drücken → Stand teilen
+- Ereignis antippen → Gesamtzeit (z. B. „112 Tage gesamt")
+- Ereignis gedrückt halten → Stand teilen
 - Zukünftige Daten funktionieren auch: dann läuft ein Countdown
-- Mehrere Zähler gleichzeitig: durch Wischen (ViewPager) zwischen ihnen wechseln,
-  Seiten-Punkte zeigen die aktuelle Position
-- Jeder Zähler frei benennbar, mit eigener Nachricht als Überschrift
+- Mehrere Ereignisse gleichzeitig: durch Wischen (ViewPager) zwischen ihnen wechseln,
+  Punkte und „Ereignis 2 von 3“ zeigen die aktuelle Position
+- Jedes Ereignis frei benennbar, mit eigener Überschrift
   (ein-/ausblendbar) und optional eigenem Hintergrundbild
-- Zähler-Reihenfolge per Drag & Drop änderbar
-- Pro Zähler wählbar: dauerhaft hochzählen oder bis zum nächsten Geburtstag/Jahrestag
-  herunterzählen (springt danach automatisch aufs Folgejahr)
-- Pro Zähler als Geburtstag markierbar; im zugehörigen Untermenü lässt sich dann die
+- Reihenfolge per Drag & Drop änderbar
+- Pro Ereignis wählbar: dauerhaft hochzählen oder Countdown zum nächsten Jahrestag
+  (springt danach automatisch aufs Folgejahr)
+- Pro Ereignis als Geburtstag markierbar; in den Geburtstagsoptionen lässt sich dann die
   Altersanzeige einschalten
 - App-Titel wird immer auf der Startseite angezeigt
 
 ### Schnellmenü
 
-- Ausfahrbares Menü auf der Hauptseite: eingefahren unsichtbar, nur die Position des Zählers bleibt
+- Ausfahrbares Menü auf der Hauptseite: eingefahren unsichtbar, nur die Position des Ereignisses bleibt
   stehen. Hochwischen vom unteren Rand oder Antippen dieses Bereichs öffnet es bis zur Bildschirmmitte,
-  der Zähler bleibt darüber sichtbar
+  das Ereignis bleibt darüber sichtbar
 - Mehrere Seiten, durch Wischen nach links und rechts erreichbar; die Punkte zeigen dann die Menü-Seite
 - Schließen durch Herunterwischen, den Griff, den Zurück-Button oder die Zurück-Geste
 - Im Zahnrad-Menü unter „Schnellmenü anpassen“ per Opt-in/Opt-out wählbar, was erscheint; alle
   Einstellungen bleiben im Zahnrad-Menü erreichbar
 
-### Kalender-Import
+### Aus Kalender hinzufügen
 
 - Jährliche Termine (z. B. Geburtstage) aus den auf dem Gerät synchronisierten
-  Kalendern lesen und auswählen, welche als Zähler übernommen werden
+  Kalendern lesen und auswählen, welche als Ereignisse übernommen werden
 - Bereits vorhandene Einträge sind markiert und nicht erneut wählbar
-- Jeder Eintrag wird ein eigener Zähler; der Kalender wird danach nicht mehr gelesen
+- Jeder Eintrag wird ein eigenes Ereignis; der Kalender wird danach nicht mehr gelesen
 - Kein Google-Login: nutzt nur den Android-Kalender (`READ_CALENDAR`)
 
-### Kontakt pro Zähler
+### Kontakt pro Ereignis
 
-- Optional bei jedem Zähler einen Kontakt aus dem Adressbuch hinterlegen
-- „Person benachrichtigen“ öffnet die SMS-App mit Nummer und Text, gesendet wird
-  von Hand; die Aktion steht auch in Meilenstein-Benachrichtigungen bereit
+- Optional bei jedem Ereignis einen Kontakt aus dem Adressbuch hinzufügen
+- „SMS an Kontakt schreiben“ öffnet die SMS-App mit Nummer und Text, gesendet wird
+  von Hand; die Aktion steht auch in den Erinnerungen bereit
 
-### Meilenstein-Benachrichtigungen
+### Erinnerungen
 
-- Fest vorgegebene Meilensteine (100 Tage, 6 Monate, 1/2/5/10 Jahre, 1000 Tage)
-  pro Zähler einzeln an-/abwählbar
-- Zusätzlich beliebig viele eigene Meilensteine (Anzahl + Einheit) definierbar
+- Fest vorgegebene Erinnerungen (100 Tage, 6 Monate, 1/2/5/10 Jahre, 1000 Tage)
+  pro Ereignis einzeln an-/abwählbar
+- Zusätzlich beliebig viele eigene Erinnerungen (Anzahl + Einheit) definierbar
 - Optional jährliche Erinnerung am Jahrestag, plant sich selbst immer neu; bei
-  aus dem Kalender importierten Zählern automatisch aktiv
+  aus dem Kalender hinzugefügten Ereignissen automatisch aktiv
 - Zustellung über `AlarmManager`, übersteht Geräte-Neustarts
 
 ### Homescreen-Widget
 
 - Greift auf denselben Zeitpunkt wie die App zu, pro Widget frei wählbar,
-  welcher Zähler angezeigt wird
+  welches Ereignis angezeigt wird
 - Einzeln konfigurierbar: welche Einheiten (Jahre/Monate/Tage/Stunden),
-  eigene Nachricht als Überschrift, eigenes Hintergrundbild
-- Antippen öffnet die App direkt beim dort konfigurierten Zähler
+  eigene Überschrift, eigenes Hintergrundbild
+- Antippen öffnet die App direkt beim dort konfigurierten Ereignis
 - Aktualisiert sich stündlich sowie sofort nach Änderungen in der App
 
 ### Aussehen
 
-- Schriftart und Textfarbe getrennt einstellbar für Text (Name/Nachricht/Titel)
-  und Zahlen (die große Zähler-Anzeige), gilt app-weit für alle Zähler
+- Schriftart und Textfarbe getrennt einstellbar für Text (Name/Überschrift/Titel)
+  und Zahlen (die große Zeitanzeige), gilt app-weit für alle Ereignisse
 - Helles Design als Alternative zum dunklen Standard-Design
-- Datum & Zahlenformat: standardmäßig nach App-Sprache (Datum, Tausender-
+- Datum & Zahlen: standardmäßig nach App-Sprache (Datum, Tausender-
   trennzeichen) bzw. Systemeinstellung (12h/24h), in den Einstellungen
   einzeln änderbar
 
-### Backup
+### Daten sichern
 
-- Alle Zähler samt eigener Hintergrundbilder als eine JSON-Datei über den
+- Alle Ereignisse samt eigener Hintergrundbilder als eine JSON-Datei über den
   Systemfreigabe-Dialog exportieren
 - An anderer Stelle (oder nach Neuinstallation) wieder einlesen, ersetzt dabei
-  alle vorhandenen Zähler
+  alle vorhandenen Ereignisse
 
 ## Dateien
 
